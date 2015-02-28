@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 18:29:06 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/28 18:37:44 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ void	debug_map(t_env *env);
 void	debug_game(t_env *env, int direction);
 int		is_pow2(unsigned long x);
 void	generate_rand_numb(t_env *env);
-t_env	*getEnv(t_env *env);
+// t_env	*getEnv(t_env *env);
+t_env	*getEnv(void);
 t_env	*init_env(int x, int y);
 void	free_env(t_env **env);
 int		move_numbers(t_env *env, int direction);

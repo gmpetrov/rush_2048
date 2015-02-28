@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 13:58:37 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 18:25:57 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/28 18:39:22 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void 	resizeHandler(int sig)
     endwin();
     refresh();
     clear();
-    e = getEnv(NULL);
+    e = getEnv();
     e->width = COLS;
     e->height = LINES;
     mvprintw(0, 0, "COLS = %d, LINES = %d", e->width, e->height);

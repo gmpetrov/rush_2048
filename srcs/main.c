@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 12:55:16 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 18:26:46 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/28 18:39:02 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int 	main(void)
 	srand(time(NULL));
 	if (!(env = init_env(4, 4)))
 		return (error("Not enough memory"));
-	getEnv(env);
+	// getEnv(env);
+	env = getEnv();
 	/*
 	generate_rand_numb(env);
 	generate_rand_numb(env);
