@@ -18,37 +18,34 @@ int 	main(void)
 	t_env	*env;
 
 	ft_putstr("game_2048\n");
-
+	if (!is_pow2(WIN_VALUE))
+		return (error_win());
+	srand(time(NULL));
 	initDisplay();
 	start_menu();
 	play();
 	// quit();
-
-	if (!is_pow2(WIN_VALUE))
-		return (error_win());
-
 //	initDisplay();
 //	start_menu();
 //	quit();
 
-	srand(time(NULL));
-	env = getEnv();
-	if (!(env->game = init_game(env->height, env->width)))
-	{
-		free(env);
-		return (1);
-	}
+//	env = getEnv();
+//	if (!(env->game = init_game(env->height, env->width)))
+//	{
+//		free(env);
+//		return (1);
+//	}
 	/*
 	debug_map(env);
 	print_game(env);
 	move_numbers(env, MOVE_UP);
 	print_game(env);
 	*/
-	debug_game(env, MOVE_LEFT);
-	while (42)
-	{
+//	debug_game(env, MOVE_LEFT);
+//	while (42)
+//	{
 		/* Resize handling */
-	}
+//	}
 	free_env(&env);
 	return (0);
 }

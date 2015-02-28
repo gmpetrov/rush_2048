@@ -20,13 +20,10 @@
 # include <stdlib.h>
 
 # define CHECK_MATE 42
-# define MOVE_UP 0
-# define MOVE_DOWN 1
-# define MOVE_LEFT 2
-# define MOVE_RIGHT 3
 # define GAME_STOPPED 0
 # define MOVED 1
 # define NOT_MOVED 0
+# define WIN 1337
 
 /* !!!!!! LOOK UP NORME FOR ENUM TYPEDEF  !!!!! */
 typedef enum 	t_const
@@ -47,7 +44,6 @@ typedef struct 	s_env
 	MENU 		*menu;
 	ITEM 		**items;
 	int 		score;
-	void (*tab[42])();
 }				t_env;
 
 /* STRUCTURES */
@@ -69,7 +65,7 @@ t_env	*getEnv(void);
 t_env	*init_env(int x, int y);
 int		**init_game(int x, int y);
 void	free_env(t_env **env);
-int		move_numbers(t_env *env, int direction);
+int		move_numbers(t_env *env, int key);
 int		move_up(t_env *env);
 int		move_down(t_env *env);
 int		move_left(t_env *env);
@@ -82,8 +78,6 @@ void 	quit(void);
 void 	print_in_middle(int starty, int startx, int width);
 ITEM 	**init_item(void);
 void 	play(void);
-void    initPtrTab(t_env *e);
-int     keyMap(int keycode);
 
 /* KEYS */
 

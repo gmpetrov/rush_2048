@@ -18,13 +18,25 @@ void 	play(void)
 {
 	t_env 	*e;
 	int 	c;
+	int		ret;
 
 	e = getEnv();
+	if (!(e->game = init_game(e->height, e->width)))	
+	{
+		free_env(&e);
+		return ;
+	}
 	while (e->score < (int)WIN_VALUE)
 	{
 		c = getch();
-		mvprintw(0, 0, "KEY = %d\n", c);
-		if (keyMap(c) != -1)
-			e->tab[keyMap(c)]();
+		if (c != -1)
+		{
+			mvprintw(0, 0, "KEY = %d\n", c);
+			if (c == 27)
+				quit();
+			ret = move_numbers(e, c);
+			if (ret == CHECK_MATE || ret == WIN)
+				break ;
+		}
 	}
 }

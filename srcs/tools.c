@@ -14,6 +14,10 @@
 
 void 	quit(void)
 {
+	t_env *e;
+
+	e = getEnv();
+	free_env(&e);
 	nocbreak();
 	echo();
 	endwin();
@@ -35,21 +39,4 @@ void 	resizeHandler(int sig)
     mvprintw(0, 0, "COLS = %d, LINES = %d", e->width, e->height);
     if (e->is_menu == 1)
     	draw_menu();
-}
-
-void    initPtrTab(t_env *e)
-{
-    e->tab[0] = &key_escape;
-}
-
-int     keyMap(int keycode)
-{
-    if (27 == keycode)
-        return 0;
-    return -1;
-}
-
-void    key_escape(void)
-{
-    quit();
 }

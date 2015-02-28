@@ -16,6 +16,8 @@ static int	check_around(t_env *env, int y, int x)
 {
 	if (env->game[y][x] == 0)
 		return (1);
+	if (env->game[y][x] == WIN_VALUE)
+		return (WIN);
 	if (y < (env->height - 1) && env->game[y + 1][x] == env->game[y][x])
 		return (1);
 	if (y > 0 && env->game[y - 1][x] == env->game[y][x])
@@ -31,6 +33,7 @@ static int	is_check_mate(t_env *env)
 {
 	int	x;
 	int	y;
+	int	ret;
 
 	y = 0;
 	while (y < env->height)
@@ -38,54 +41,56 @@ static int	is_check_mate(t_env *env)
 		x = 0;
 		while (x < env->width)
 		{
-			if (check_around(env, y, x))
-				return (0);
+			if ((ret = check_around(env, y, x)) > 0)
+				return (ret);
 			x++;
 		}
 		y++;
 	}
-	ft_putendl("Is check mate");
-	return (1);
+	return (CHECK_MATE);
 }
 
-static int	move_handler(t_env *env, int direction)
+static int	move_handler(t_env *env, int key)
 {
 	int		try;
 	int		cond;
 	int		(*f)(t_env *);
 
 	try = 0;
-	if (direction == MOVE_UP || direction == MOVE_DOWN)
+	f = NULL;
+	if (key == KEY_UP || key == KEY_DOWN)
 		cond = env->height;
 	else
 		cond = env->width;
-	if (direction == MOVE_UP)
+	if (key == KEY_UP)
 		f = move_up;
-	else if (direction == MOVE_DOWN)
+	else if (key == KEY_DOWN)
 		f = move_down;
-	else if (direction == MOVE_LEFT)
+	else if (key == KEY_LEFT)
 		f = move_left;
-	else if (direction == MOVE_RIGHT)
+	else if (key == KEY_RIGHT)
 		f = move_right;
-	while (try < cond && f(env) == MOVED)
+	while (f && try < cond && f(env) == MOVED)
 		try++;
 	if (try)
 		return (MOVED);
 	return (NOT_MOVED);
 }
 
-int			move_numbers(t_env *env, int direction)
+int			move_numbers(t_env *env, int key)
 {
-	int		ret;
+	int		moved;
+	int		ret;	
 
 	ret = 0;
-	mov_notif(direction);
-	ret = move_handler(env, direction);
-	if (ret == MOVED)
+	moved = 0;
+	moved = move_handler(env, key);
+	if (moved == MOVED)
 	{
 		generate_rand_numb(env);
-		if (is_check_mate(env))
-			return (CHECK_MATE);
+		ret = is_check_mate(env);
+		if (ret == WIN || ret == CHECK_MATE)
+			return (ret);
 	}
-	return (ret);
+	return (moved);
 }

@@ -30,9 +30,8 @@ t_env	*getEnv(void)
 	if (e == NULL)
 	{
 		e = init_env(4, 4);
-		
+/*		
 		e = (t_env *)malloc(sizeof(t_env));
-		initPtrTab(e);
 		e->width = 4;
 		e->height = 4;
 		e->width = COLS;
@@ -42,6 +41,7 @@ t_env	*getEnv(void)
 		e->items = init_item();
 		e->menu = new_menu((ITEM **)e->items);
 		e->score = 0;
+*/
 	}
 	return e;
 }
@@ -51,12 +51,13 @@ void	free_env(t_env **env)
 	int		i;
 
 	i = 0;
-	while (i < (*env)->height)
+	while ((*env) && (*env)->game && i < (*env)->height)
 	{
 		free((*env)->game[i]);
 		i++;
 	}
-	free((*env)->game);
+	if ((*env)->game)
+		free((*env)->game);
 	free((*env));
 	*env = NULL;
 }
@@ -102,5 +103,6 @@ t_env	*init_env(int x, int y)
 	env->items = init_item();
 	env->menu = new_menu((ITEM **)env->items);
 	env->game = NULL;
+	env->score = 0;
 	return (env);
 }

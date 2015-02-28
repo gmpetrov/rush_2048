@@ -55,13 +55,13 @@ void	num_pop(int num, int x, int y)
 void	mov_notif(int direction)
 {
 	ft_putstr("Moved ");
-	if (direction == MOVE_UP)
+	if (direction == KEY_UP)
 		ft_putendl("UP");
-	else if (direction == MOVE_DOWN)
+	else if (direction == KEY_DOWN)
 		ft_putendl("DOWN");
-	else if (direction == MOVE_LEFT)
+	else if (direction == KEY_LEFT)
 		ft_putendl("LEFT");
-	else if (direction == MOVE_RIGHT)
+	else if (direction == KEY_RIGHT)
 		ft_putendl("RIGHT");
 }
 
