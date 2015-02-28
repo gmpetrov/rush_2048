@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 21:20:39 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/28 22:03:43 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,9 @@ void    initPtrTab(t_env *e);
 int     keyMap(int keycode);
 void 	init_win_tab(void);
 void 	refresh_win_tab(void);
+void	draw_game(void);
+void 	print_numbers(void);
+
 /* KEYS */
 
 void    key_escape(void);

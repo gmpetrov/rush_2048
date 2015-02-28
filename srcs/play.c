@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 19:15:57 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 21:33:09 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/28 22:16:51 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 
 void	draw_game(void);
 
-int 	game[4][4] = {
-	{1, 1, 1, 1},
-	{1, 1, 1, 1},
-	{1, 1, 1, 1},
-	{1, 1, 1, 1}
+int 	game[5][5] = {
+	{1, 1, 1, 1, 1},
+	{1, 1, 1, 1, 1},
+	{1, 1, 1, 1, 1},
+	{1, 1, 1, 1, 1},
+	{1, 1, 1, 1, 1}
 };
 
 void 	refresh_win_tab(void)
@@ -81,15 +82,61 @@ void 	play(void)
 		draw_game();
 		refresh_win_tab();
 		c = getch();
-		mvprintw(0, 0, "KEY = %d\n", c);
 		if (keyMap(c) != -1)
 			e->tab[keyMap(c)]();
 	}
 }
 
+void 	print_numbers(void)
+{
+	t_env	*e;
+	int 	j;
+	int 	i;
+	char	*nb;
+
+	i = 0;
+	j = 0;
+	e = getEnv();
+	while (j < e->grid_size)
+	{
+		while (i < e->grid_size)
+		{	
+			nb = ft_itoa(game[j][i]);
+			if (game[j][i] == 0)
+				mvwprintw(e->win_tab[j][i], (e->height / e->grid_size) / 2, \
+					(e->width / e->grid_size) / 2, "");
+			else
+				mvwprintw(e->win_tab[j][i], (e->height / e->grid_size) / 2, \
+					(e->width / e->grid_size) / 2, nb);
+			i++;
+			free(nb);
+		}
+		i = 0;
+		j++;
+	}
+}
+
 void	draw_game(void)
 {
-	t_env 	*e;
+	t_env	*e;
+	int 	j;
+	int 	i;
 
+	i = 0;
+	j = 0;
 	e = getEnv();
+	while (j < e->grid_size)
+	{
+		while (i < e->grid_size)
+		{
+			wclear(e->win_tab[j][i]);
+			wresize(e->win_tab[j][i], (e->height / e->grid_size), (e->width / e->grid_size));
+			mvwin(e->win_tab[j][i], j * (e->height / e->grid_size), i * (e->width / e->grid_size));
+			box(e->win_tab[j][i], 0, 0);
+			i++;
+		}
+		i = 0;
+		j++;
+	}
+	print_numbers();
 }	
