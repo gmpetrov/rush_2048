@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 13:11:43 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 18:38:07 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/28 20:20:48 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ t_env	*getEnv(void)
 	if (e == NULL)
 	{
 		e = init_env(4, 4);
-		/*
+		
 		e = (t_env *)malloc(sizeof(t_env));
+		initPtrTab(e);
 		e->width = 4;
 		e->height = 4;
 		e->width = COLS;
@@ -40,7 +41,7 @@ t_env	*getEnv(void)
 		e->menu_win = newwin(10, 40, (LINES / 2) - 5, (COLS / 2) - 20);
 		e->items = init_item();
 		e->menu = new_menu((ITEM **)e->items);
-		*/
+		e->score = 0;
 	}
 	return e;
 }

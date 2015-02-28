@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 18:37:44 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/28 19:32:42 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ typedef struct 	s_env
 	WINDOW 		*menu_win;
 	MENU 		*menu;
 	ITEM 		**items;
+	int 		score;
+	void (*tab[42])();
 }				t_env;
 
 /* STRUCTURES */
@@ -79,6 +81,13 @@ void 	draw_menu(void);
 void 	quit(void);
 void 	print_in_middle(int starty, int startx, int width);
 ITEM 	**init_item(void);
+void 	play(void);
+void    initPtrTab(t_env *e);
+int     keyMap(int keycode);
+
+/* KEYS */
+
+void    key_escape(void);
 
 /* END PROTOTYPES */
 

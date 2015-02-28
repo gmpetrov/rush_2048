@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 15:02:35 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 18:18:27 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/28 20:20:03 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ void	print_in_middle(int starty, int startx, int width)
 	t_env 	*e;
 
 	e = getEnv();
-	// if(e->menu_win == NULL)
-	// 	e->menu_win = stdscr;
 	getyx(e->menu_win, y, x);
 	if(startx != 0)
 		x = startx;
@@ -65,14 +63,16 @@ int		menu_loop()
 
 	n = 0;
 	e = getEnv();
-	while ((c = wgetch(e->menu_win)) != 27)
-	{
-		if (c == KEY_DOWN){
+	while((c = wgetch(e->menu_win)) != 27)
+	{   
+		if (c == KEY_DOWN)
+		{
 			if (n < 1)
 				n++;
 			menu_driver(e->menu, REQ_DOWN_ITEM);
 		}
-		else if (c == KEY_UP){
+		else if (c == KEY_UP)
+		{
 			if (n > 0)
 				n--;
 			menu_driver(e->menu, REQ_UP_ITEM);
