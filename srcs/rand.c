@@ -30,10 +30,10 @@ static void	place_fixed_number(int num, t_env *env)
 	int	x;
 
 	y = 0;
-	while (y < env->height)
+	while (y < env->grid_size)
 	{
 		x = 0;
-		while (x < env->height)
+		while (x < env->grid_size)
 		{
 			if (env->game[y][x] == 0)
 			{
@@ -61,8 +61,8 @@ void		generate_rand_numb(t_env *env)
 	try = 3;
 	while (try)
 	{
-		case_x = (case_x + rand()) % env->width;
-		case_y = (case_y + rand()) % env->height;
+		case_x = (case_x + rand()) % env->grid_size;
+		case_y = (case_y + rand()) % env->grid_size;
 		if (place_rand_number(num, case_x, case_y, env))
 			return ;
 		try--;

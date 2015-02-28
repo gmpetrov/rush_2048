@@ -18,11 +18,11 @@ void	print_game(t_env *env)
 	int	j;
 
 	i = 0;
-	while (i < env->height)
+	while (i < env->grid_size)
 	{
 		j = 0;
 		write(1, " ", 1);
-		while (j < env->width)
+		while (j < env->grid_size)
 		{
 			if (env->last_x == j && env->last_y == i)
 				write(1, "[", 1);

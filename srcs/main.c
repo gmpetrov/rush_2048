@@ -15,8 +15,6 @@
 
 int 	main(void)
 {
-	t_env	*env;
-
 	ft_putstr("game_2048\n");
 	if (!is_pow2(WIN_VALUE))
 		return (error_win());
@@ -24,7 +22,7 @@ int 	main(void)
 	initDisplay();
 	start_menu();
 	play();
-	// quit();
+	quit();
 //	initDisplay();
 //	start_menu();
 //	quit();
@@ -46,6 +44,5 @@ int 	main(void)
 //	{
 		/* Resize handling */
 //	}
-	free_env(&env);
 	return (0);
 }

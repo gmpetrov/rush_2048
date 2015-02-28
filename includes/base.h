@@ -45,7 +45,6 @@ typedef struct 	s_env
 	ITEM 		**items;
 	int 		score;
 	WINDOW		***win_tab;
-	void (*tab[42])();
 }				t_env;
 
 /* STRUCTURES */
@@ -64,8 +63,8 @@ int		is_pow2(unsigned long x);
 void	generate_rand_numb(t_env *env);
 // t_env	*getEnv(t_env *env);
 t_env	*getEnv(void);
-t_env	*init_env(int x, int y);
-int		**init_game(int x, int y);
+t_env	*init_env(int grid_size);
+int		**init_game(int grid_size);
 void	free_env(t_env **env);
 int		move_numbers(t_env *env, int key);
 int		move_up(t_env *env);

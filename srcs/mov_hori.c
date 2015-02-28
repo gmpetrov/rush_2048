@@ -14,7 +14,7 @@
 
 static int	collide_hori_numbers(t_env *env, int prev_x, int y, int next_x)
 {
-	if (next_x >= env->width || next_x < 0)
+	if (next_x >= env->grid_size || next_x < 0)
 		return (NOT_MOVED);
 	if (env->game[y][prev_x] != 0 &&
 		env->game[y][prev_x] == env->game[y][next_x])
@@ -40,9 +40,9 @@ int			move_left(t_env *env)
 
 	y = 0;
 	ret = 0;
-	while (y < env->height)
+	while (y < env->grid_size)
 	{
-		x = env->width - 1;
+		x = env->grid_size - 1;
 		while (x >= 0)
 		{
 			ret = collide_hori_numbers(env, x, y, x - 1) == 1 ? 1 : ret;
@@ -61,10 +61,10 @@ int			move_right(t_env *env)
 
 	y = 0;
 	ret = 0;
-	while (y < env->height)
+	while (y < env->grid_size)
 	{
 		x = 0;
-		while (x < env->width)
+		while (x < env->grid_size)
 		{
 			ret = collide_hori_numbers(env, x, y, x + 1) == 1 ? 1 : ret;
 			x++;

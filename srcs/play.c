@@ -75,11 +75,13 @@ void 	play(void)
 	int		ret;
 
 	e = getEnv();
-	if (!(e->game = init_game(e->height, e->width)))	
+	if (!(e->game = init_game(e->grid_size)))	
 	{
 		free_env(&e);
 		return ;
 	}
+	generate_rand_numb(e);
+	generate_rand_numb(e);
 	init_win_tab();
 	while (e->score < (int)WIN_VALUE)
 	{
@@ -88,7 +90,7 @@ void 	play(void)
 		c = getch();
 		if (c != -1)
 		{
-			mvprintw(0, 0, "KEY = %d\n", c);
+//			mvprintw(0, 0, "KEY = %d\n", c);
 			if (c == 27)
 				quit();
 			ret = move_numbers(e, c);
@@ -112,8 +114,8 @@ void 	print_numbers(void)
 	{
 		while (i < e->grid_size)
 		{	
-			nb = ft_itoa(game[j][i]);
-			if (game[j][i] == 0)
+			nb = ft_itoa(e->game[j][i]);
+			if (e->game[j][i] == 0)
 				mvwprintw(e->win_tab[j][i], (e->height / e->grid_size) / 2, \
 					(e->width / e->grid_size) / 2, "");
 			else

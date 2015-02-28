@@ -14,7 +14,7 @@
 
 static int	collide_vert_numbers(t_env *env, int lower_y, int x, int upper_y)
 {
-	if (upper_y >= env->height || upper_y < 0)
+	if (upper_y >= env->grid_size || upper_y < 0)
 		return (NOT_MOVED);
 	if (env->game[lower_y][x] != 0 &&
 		env->game[lower_y][x] == env->game[upper_y][x])
@@ -38,12 +38,12 @@ int			move_up(t_env *env)
 	int	y;
 	int	ret;
 
-	y = env->height - 1;
+	y = env->grid_size - 1;
 	ret = NOT_MOVED;
 	while (y >= 0)
 	{
 		x = 0;
-		while (x < env->width)
+		while (x < env->grid_size)
 		{
 			ret = collide_vert_numbers(env, y, x, y - 1) ? MOVED : ret;
 			x++;
@@ -61,10 +61,10 @@ int			move_down(t_env *env)
 
 	y = 0;
 	ret = NOT_MOVED;
-	while (y < env->height)
+	while (y < env->grid_size)
 	{
 		x = 0;
-		while (x < env->width)
+		while (x < env->grid_size)
 		{
 			ret = collide_vert_numbers(env, y, x, y + 1) ? MOVED : ret;
 			x++;

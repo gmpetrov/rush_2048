@@ -18,13 +18,13 @@ static int	check_around(t_env *env, int y, int x)
 		return (1);
 	if (env->game[y][x] == WIN_VALUE)
 		return (WIN);
-	if (y < (env->height - 1) && env->game[y + 1][x] == env->game[y][x])
+	if (y < (env->grid_size - 1) && env->game[y + 1][x] == env->game[y][x])
 		return (1);
 	if (y > 0 && env->game[y - 1][x] == env->game[y][x])
 		return (1);
 	if (x > 0 && env->game[y][x - 1] == env->game[y][x])
 		return (1);
-	if (x < (env->width - 1) && env->game[y][x + 1] == env->game[y][x])
+	if (x < (env->grid_size - 1) && env->game[y][x + 1] == env->game[y][x])
 		return (1);
 	return (0);
 }
@@ -36,10 +36,10 @@ static int	is_check_mate(t_env *env)
 	int	ret;
 
 	y = 0;
-	while (y < env->height)
+	while (y < env->grid_size)
 	{
 		x = 0;
-		while (x < env->width)
+		while (x < env->grid_size)
 		{
 			if ((ret = check_around(env, y, x)) > 0)
 				return (ret);
@@ -59,9 +59,9 @@ static int	move_handler(t_env *env, int key)
 	try = 0;
 	f = NULL;
 	if (key == KEY_UP || key == KEY_DOWN)
-		cond = env->height;
+		cond = env->grid_size;
 	else
-		cond = env->width;
+		cond = env->grid_size;
 	if (key == KEY_UP)
 		f = move_up;
 	else if (key == KEY_DOWN)
