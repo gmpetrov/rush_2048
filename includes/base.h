@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 15:07:13 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/28 17:53:32 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ typedef struct 	s_env
 	int			width;
 	int 		height;
 	int 		grid_size;
+	int 		is_menu;
+	WINDOW 		*menu_win;
+	MENU 		*menu;
+	ITEM 		**items;
 }				t_env;
 
 
@@ -41,6 +45,10 @@ t_env	*getEnv(void);
 void 	resizeHandler(int signal);
 void	initDisplay(void);
 void 	start_menu(void);
+void 	draw_menu(void);
+void 	quit(void);
+void 	print_in_middle(int starty, int startx, int width);
+ITEM 	**init_item(void);
 
 /* END PROTOTYPES */
 
