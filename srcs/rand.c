@@ -17,6 +17,7 @@ static int	place_rand_number(int num, int x, int y, t_env *env)
 	if (env->game[y][x] == 0)
 	{
 		env->game[y][x] = num;
+		num_pop(num, x, y);
 		return (1);
 	}
 	return (0);
@@ -26,11 +27,8 @@ static void	place_fixed_number(int num, t_env *env)
 {
 	int	y;
 	int	x;
-	int	has_break;
 
 	y = 0;
-	has_break = 0;
-	ft_putendl("uh ho");
 	while (y < env->height)
 	{
 		x = 0;
@@ -39,13 +37,11 @@ static void	place_fixed_number(int num, t_env *env)
 			if (env->game[y][x] == 0)
 			{
 				env->game[y][x] = num;
-				has_break = 1;
-				break ;
+				num_pop(num, x, y);
+				return ;
 			}
 			x++;
 		}
-		if (has_break)
-			break ;
 		y++;
 	}
 }
@@ -61,12 +57,12 @@ void		generate_rand_numb(t_env *env)
 	case_x = 0;
 	case_y = 0;
 	try = 3;
-	while (try--)
+	while (try)
 	{
 		case_x = (case_x + rand()) % env->width;
 		case_y = (case_y + rand()) % env->height;
 		if (place_rand_number(num, case_x, case_y, env))
-			break ;
+			return ;
 		try--;
 	}
 	if (!try)

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   direction_fun.c                                    :+:      :+:    :+:   */
+/*   mov_vert.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -15,21 +15,21 @@
 static int	collide_vert_numbers(t_env *env, int lower_y, int x, int upper_y)
 {
 	if (upper_y >= env->height || upper_y < 0)
-		return (0);
+		return (NOT_MOVED);
 	if (env->game[lower_y][x] != 0 &&
 		env->game[lower_y][x] == env->game[upper_y][x])
 	{
 		env->game[upper_y][x] = env->game[lower_y][x] * 2;
 		env->game[lower_y][x] = 0;
+		return (MOVED);
 	}
-	else if (env->game[upper_y][x] == 0)
+	else if (env->game[upper_y][x] == 0 && env->game[lower_y][x] != 0)
 	{
 		env->game[upper_y][x] = env->game[lower_y][x];
 		env->game[lower_y][x] = 0;
+		return (MOVED);
 	}
-	else if (env->game[upper_y][x] != 0 && env->game[lower_y][x] != 0)
-		return (0);
-	return (1);
+	return (NOT_MOVED);
 }
 
 int			move_up(t_env *env)
@@ -39,16 +39,37 @@ int			move_up(t_env *env)
 	int	ret;
 
 	y = env->height - 1;
-	ret = 0;
+	ret = NOT_MOVED;
 	while (y >= 0)
 	{
 		x = 0;
 		while (x < env->width)
 		{
-			ret = collide_vert_numbers(env, y, x, y - 1) == 1 ? 1 : ret;
+			ret = collide_vert_numbers(env, y, x, y - 1) ? MOVED : ret;
 			x++;
 		}
 		y--;
+	}
+	return (ret);
+}
+
+int			move_down(t_env *env)
+{
+	int	x;
+	int	y;
+	int	ret;
+
+	y = 0;
+	ret = NOT_MOVED;
+	while (y < env->height)
+	{
+		x = 0;
+		while (x < env->width)
+		{
+			ret = collide_vert_numbers(env, y, x, y + 1) ? MOVED : ret;
+			x++;
+		}
+		y++;
 	}
 	return (ret);
 }

@@ -52,7 +52,7 @@ static int	**init_game(int x, int y)
 		if (!(game[i] = malloc(x * sizeof(int))))
 			return (NULL);
 		j = 0;
-		while (game[i][j] < x)
+		while (j < x)
 		{
 			game[i][j] = 0;
 			j++;

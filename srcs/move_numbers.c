@@ -46,17 +46,43 @@ static int	is_check_mate(t_env *env)
 	return (1);
 }
 
-int		move_numbers(t_env *env, int direction)
+static int	move_handler(t_env *env, int direction)
+{
+	int		try;
+	int		cond;
+	int		(*f)(t_env *);
+
+	try = 0;
+	if (direction == MOVE_UP || direction == MOVE_DOWN)
+		cond = env->height;
+	else
+		cond = env->width;
+	if (direction == MOVE_UP)
+		f = move_up;
+	else if (direction == MOVE_DOWN)
+		f = move_down;
+	else if (direction == MOVE_LEFT)
+		f = move_left;
+	else if (direction == MOVE_RIGHT)
+		f = move_right;
+	while (try < cond && f(env) == MOVED)
+		try++;
+	if (try)
+		return (MOVED);
+	return (NOT_MOVED);
+}
+
+int			move_numbers(t_env *env, int direction)
 {
 	int		ret;
 
 	ret = 0;
-	if (direction == 0)
-		ret = move_up(env);
-	if (ret)
+	mov_notif(direction);
+	ret = move_handler(env, direction);
+	if (ret == MOVED)
 	{
 		if (is_check_mate(env))
-			return (1);
+			return (CHECK_MATE);
 		generate_rand_numb(env);
 	}
 	return (ret);
