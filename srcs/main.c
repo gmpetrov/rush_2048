@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 12:55:16 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 18:39:02 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/28 19:14:58 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int 	main(void)
 
 	initDisplay();
 	start_menu();
-	quit();
+	play();
+	// quit();
 
 	if (!is_pow2(WIN_VALUE))
 		return (error_win());
