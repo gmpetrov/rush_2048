@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/28 12:55:16 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 14:43:50 by gmp              ###   ########.fr       */
+/*   Created: 2015/02/28 14:41:34 by gmp               #+#    #+#             */
+/*   Updated: 2015/02/28 14:44:07 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-int 	main(void)
+void	initDisplay(void)
 {
-	ft_putstr("game_2048\n");
-	initDisplay();
-	while (42)
-		; /* Resize handling */
-	return (0);
+	initscr();
+	keypad(stdscr, TRUE);
+	signal(SIGWINCH, resizeHandler);
 }

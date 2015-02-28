@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 13:44:25 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/28 14:44:01 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct 	s_env
 {
 	int			width;
 	int 		height;
+	int 		grid_size;
 }				t_env;
 
 
@@ -37,6 +38,7 @@ typedef struct 	s_env
 
 t_env	*getEnv(void);
 void 	resizeHandler(int signal);
+void	initDisplay(void);
 
 /* END PROTOTYPES */
 
