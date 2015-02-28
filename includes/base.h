@@ -38,6 +38,7 @@ typedef struct 	s_env
 /* PROTOTYPES */
 
 int		error_win(void);
+int		error(char *message);
 int		is_pow2(unsigned long x);
 void	print_game(t_env *env);
 void	generate_rand_numb(t_env *env);

@@ -19,7 +19,7 @@ t_env		*getEnv(t_env *env)
 	if (env)
 		e = env;
 	else if (e == NULL)
-		e = init_env(5, 5);
+		e = init_env(4, 4);
 	return e;
 }
 

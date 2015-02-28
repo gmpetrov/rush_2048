@@ -15,6 +15,12 @@
 int		error_win(void)
 {
 	ft_putnbr(WIN_VALUE);
-	ft_putstr(" is not a power of 2.");
+	ft_putendl(" is not a power of 2");
+	return (1);
+}
+
+int		error(char *message)
+{
+	ft_putendl(message);
 	return (1);
 }

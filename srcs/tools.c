@@ -20,7 +20,7 @@ void 	resizeHandler(int sig)
     endwin();
     refresh();
     clear();
-    e = getEnv();
+    e = getEnv(NULL);
     e->width = COLS;
     e->height = LINES;
     mvprintw(0, 0, "COLS = %d, LINES = %d", e->width, e->height);

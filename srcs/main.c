@@ -24,12 +24,11 @@ int 	main(void)
 //	keypad(stdscr, TRUE);
 //	signal(SIGWINCH, resizeHandler);
 	srand(time(NULL));
-	env = init_env(5, 5);
+	if (!(env = init_env(4, 4)))
+		return (error("Not enough memory"));
 	getEnv(env);
 	generate_rand_numb(env);
 	generate_rand_numb(env);
-//	env->game[4][4] = 4;
-//	env->game[0][4] = 4;
 	print_game(env);
 	while (42)
 	{
@@ -38,7 +37,10 @@ int 	main(void)
 			write(1, "==========\n", 11);
 			print_game(env);
 		}
+		else
+			break;
 		; /* Resize handling */
 	}
+	free_env(&env);
 	return (0);
 }
