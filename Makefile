@@ -10,12 +10,15 @@
 #                                                                              #
 # **************************************************************************** #
 
+OS		:= $(shell uname)
 NAME	= game_2048
 SRCS	= $(shell find srcs -type f -print | grep "\.c")
 OBJS	= $(SRCS:srcs/%.c=srcs/.obj/%.o)
 INC		= -I includes -I libft/includes
 FLAGS	= -Wall -Wextra -Werror
-LIB		= -L libft -lft -L /usr/X11/lib -lmlx -lXext -lX11 -lcurses
+
+LIB		= -L libft -lft -lncurses
+
 CC		= gcc -g
 OBJ_DIR = srcs/.obj
 

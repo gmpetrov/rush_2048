@@ -14,8 +14,9 @@
 # define BASE_H
 
 # include "libft.h"
-# include <curses.h>
+# include <ncurses.h>
 # include <signal.h>
+# include <stdlib.h>
 
 /* !!!!!! LOOK UP NORME FOR ENUM TYPEDEF  !!!!! */
 typedef enum 	t_const
@@ -25,6 +26,7 @@ typedef enum 	t_const
 
 typedef struct 	s_env
 {
+	int			**game;
 	int			width;
 	int 		height;
 }				t_env;
@@ -35,7 +37,15 @@ typedef struct 	s_env
 
 /* PROTOTYPES */
 
-t_env	*getEnv(void);
+int		error_win(void);
+int		is_pow2(unsigned long x);
+void	print_game(t_env *env);
+void	generate_rand_numb(t_env *env);
+t_env	*getEnv(t_env *env);
+t_env	*init_env(int x, int y);
+void	free_env(t_env **env);
+int		move_numbers(t_env *env, int direction);
+int		move_up(t_env *env);
 void 	resizeHandler(int signal);
 
 /* END PROTOTYPES */
