@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   base.h                                             :+:      :+:    :+:   */
+/*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 13:14:01 by gmp              ###   ########.fr       */
+/*   Created: 2015/02/28 13:11:43 by gmp               #+#    #+#             */
+/*   Updated: 2015/02/28 13:12:04 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE_H
-# define BASE_H
+#include "base.h"
 
-# include "libft.h"
-
-/* !!!!!! LOOK UP NORME FOR ENUM TYPEDEF  !!!!! */
-typedef enum 	t_const
+t_env	*getEnv()
 {
-	WIN_VALUE = 2048
-}				e_const;
-
-typedef struct 	s_env
-{
-	int			x;
-}				t_env;
-
-
-/* STRUCTURES */
-
-
-/* PROTOTYPES */
-
-
-/* END PROTOTYPES */
-
-#endif
+	static t_env	*e = NULL;
+	if (e == NULL){
+		e = (t_env *)malloc(sizeof(t_env));
+	}
+	return e;
+}
