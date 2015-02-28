@@ -21,16 +21,24 @@ void	print_game(t_env *env)
 	while (i < env->height)
 	{
 		j = 0;
+		write(1, " ", 1);
 		while (j < env->width)
 		{
+			if (env->last_x == j && env->last_y == i)
+				write(1, "[", 1);
 			ft_putnbr(env->game[i][j]);
+			if (env->last_x == j && env->last_y == i)
+				write(1, "]", 1);
+			if (env->last_x == j && env->last_y == i)
+				write(1, "  ", 2);
+			else
+				write(1, "    ", 4);
 			j++;
-			write(1, "    ", 4);
 		}
 		write(1, "\n", 1);
 		i++;
 	}
-	ft_putendl("----------------");
+	ft_putendl(" ----------------");
 }
 
 void	num_pop(int num, int x, int y)
@@ -66,21 +74,28 @@ void	debug_map(t_env *env)
 void	debug_game(t_env *env, int direction)
 {
 	int	ret;
+	int	rand_direction;
+	int	it;
 
-	env->game[0][0] = 2;
-	env->game[1][1] = 4;
-//	generate_rand_numb(env);
-//	generate_rand_numb(env);
+	(void)direction;
 	print_game(env);
+	generate_rand_numb(env);
+	generate_rand_numb(env);
+	it = 0;
+	(void)it;
 	while (42)
 	{
-		ret = move_numbers(env, direction);
+		rand_direction = rand() % 4;
+		ret = move_numbers(env, rand_direction);
 		print_game(env);
-		if (ret == GAME_STOPPED)
-			break ;
+//		if (ret == GAME_STOPPED)
+//			break ;
 		if (ret == CHECK_MATE)
 			break ;
+//		if (it == 30)
+//			break ;
 	}
 	if (ret == GAME_STOPPED)
 		ft_putendl("No more move in that direction");
+	_exit(0);
 }

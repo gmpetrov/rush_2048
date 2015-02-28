@@ -17,6 +17,8 @@ static int	place_rand_number(int num, int x, int y, t_env *env)
 	if (env->game[y][x] == 0)
 	{
 		env->game[y][x] = num;
+		env->last_x = x;
+		env->last_y = y;
 		num_pop(num, x, y);
 		return (1);
 	}
@@ -37,6 +39,8 @@ static void	place_fixed_number(int num, t_env *env)
 			if (env->game[y][x] == 0)
 			{
 				env->game[y][x] = num;
+				env->last_x = x;
+				env->last_y = y;
 				num_pop(num, x, y);
 				return ;
 			}

@@ -17,6 +17,7 @@ OBJS	= $(SRCS:srcs/%.c=srcs/.obj/%.o)
 INC		= -I includes -I libft/includes
 FLAGS	= -Wall -Wextra -Werror
 LIB		= -L libft -lft -lcurses -lmenu
+BASE	= includes/base.h
 CC		= gcc -g
 OBJ_DIR = srcs/.obj
 
@@ -27,7 +28,7 @@ $(NAME): $(OBJS)
 	@$(CC) $(FLAGS) $(OBJS) -o $(NAME) $(INC) $(LIB)
 	@echo "\n=> Compiling $(NAME) [\033[32mDONE\033[m]"
 
-$(OBJ_DIR)/%.o: srcs/%.c
+$(OBJ_DIR)/%.o: srcs/%.c $(BASE)
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) -c $< -o $@ $(FLAGS) $(INC)
 	@echo -n .

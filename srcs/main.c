@@ -19,43 +19,29 @@ int 	main(void)
 
 	ft_putstr("game_2048\n");
 
-	initDisplay();
-	start_menu();
-	quit();
-
 	if (!is_pow2(WIN_VALUE))
 		return (error_win());
-//	initscr();
-//	keypad(stdscr, TRUE);
-//	signal(SIGWINCH, resizeHandler);
+
+//	initDisplay();
+//	start_menu();
+//	quit();
+
 	srand(time(NULL));
-	if (!(env = init_env(4, 4)))
-		return (error("Not enough memory"));
-	// getEnv(env);
 	env = getEnv();
-	/*
-	generate_rand_numb(env);
-	generate_rand_numb(env);
-	print_game(env);
-	move_numbers(env, MOVE_UP);
-	print_game(env);
-	move_numbers(env, MOVE_DOWN);
-	print_game(env);
-	move_numbers(env, MOVE_LEFT);
-	print_game(env);
-	move_numbers(env, MOVE_RIGHT);
-	print_game(env);
-	*/
+	if (!(env->game = init_game(env->height, env->width)))
+	{
+		free(env);
+		return (1);
+	}
 	/*
 	debug_map(env);
 	print_game(env);
 	move_numbers(env, MOVE_UP);
 	print_game(env);
 	*/
-	//debug_game(env, MOVE_LEFT);
+	debug_game(env, MOVE_LEFT);
 	while (42)
 	{
-		break ;
 		/* Resize handling */
 	}
 	free_env(&env);

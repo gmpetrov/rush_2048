@@ -14,13 +14,15 @@
 
 static int	check_around(t_env *env, int y, int x)
 {
-	if (y < (env->height + 1) && env->game[y + 1][x] == env->game[y][x])
+	if (env->game[y][x] == 0)
+		return (1);
+	if (y < (env->height - 1) && env->game[y + 1][x] == env->game[y][x])
 		return (1);
 	if (y > 0 && env->game[y - 1][x] == env->game[y][x])
 		return (1);
 	if (x > 0 && env->game[y][x - 1] == env->game[y][x])
 		return (1);
-	if (x < (env->width + 1) && env->game[y][x + 1] == env->game[y][x])
+	if (x < (env->width - 1) && env->game[y][x + 1] == env->game[y][x])
 		return (1);
 	return (0);
 }
@@ -81,9 +83,9 @@ int			move_numbers(t_env *env, int direction)
 	ret = move_handler(env, direction);
 	if (ret == MOVED)
 	{
+		generate_rand_numb(env);
 		if (is_check_mate(env))
 			return (CHECK_MATE);
-		generate_rand_numb(env);
 	}
 	return (ret);
 }

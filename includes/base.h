@@ -39,13 +39,14 @@ typedef struct 	s_env
 	int			**game;
 	int			width;
 	int 		height;
+	int			last_x;
+	int			last_y;
 	int 		grid_size;
 	int 		is_menu;
 	WINDOW 		*menu_win;
 	MENU 		*menu;
 	ITEM 		**items;
 }				t_env;
-
 
 /* STRUCTURES */
 
@@ -64,6 +65,7 @@ void	generate_rand_numb(t_env *env);
 // t_env	*getEnv(t_env *env);
 t_env	*getEnv(void);
 t_env	*init_env(int x, int y);
+int		**init_game(int x, int y);
 void	free_env(t_env **env);
 int		move_numbers(t_env *env, int direction);
 int		move_up(t_env *env);

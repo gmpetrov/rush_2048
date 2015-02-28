@@ -26,8 +26,11 @@
 t_env	*getEnv(void)
 {
 	static t_env	*e = NULL;
+
 	if (e == NULL)
 	{
+		e = init_env(4, 4);
+		/*
 		e = (t_env *)malloc(sizeof(t_env));
 		e->width = 4;
 		e->height = 4;
@@ -37,11 +40,12 @@ t_env	*getEnv(void)
 		e->menu_win = newwin(10, 40, (LINES / 2) - 5, (COLS / 2) - 20);
 		e->items = init_item();
 		e->menu = new_menu((ITEM **)e->items);
+		*/
 	}
 	return e;
 }
 
-void		free_env(t_env **env)
+void	free_env(t_env **env)
 {
 	int		i;
 
@@ -56,7 +60,7 @@ void		free_env(t_env **env)
 	*env = NULL;
 }
 
-static int	**init_game(int x, int y)
+int		**init_game(int x, int y)
 {
 	int	**game;
 	int	i;
@@ -80,25 +84,22 @@ static int	**init_game(int x, int y)
 	return (game);
 }
 
-t_env		*init_env(int x, int y)
+t_env	*init_env(int x, int y)
 {
 	t_env	*env;
 
-	if (!(env = malloc(sizeof(t_env))))
+	if (!(env = (t_env *)malloc(sizeof(t_env))))
 		return (NULL);
 	env->width = x;
 	env->height = y;
-	env = (t_env *)malloc(sizeof(t_env));
-	env->width = COLS;
-	env->height = LINES;
+	env->last_x = -1;
+	env->last_y = -1;
+//	env->width = COLS;
+//	env->height = LINES;
 	env->is_menu = 0;
 	env->menu_win = newwin(10, 40, (LINES / 2) - 5, (COLS / 2) - 20);
 	env->items = init_item();
 	env->menu = new_menu((ITEM **)env->items);
-	if (!(env->game = init_game(x, y)))
-	{
-		free(env);
-		return (NULL);
-	}
+	env->game = NULL;
 	return (env);
 }

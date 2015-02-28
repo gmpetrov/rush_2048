@@ -14,10 +14,10 @@
 
 #include <stdio.h>
 
-int 	menu_loop();
-void 	end_menu(ITEM **my_items, MENU *my_menu);
+int		menu_loop();
+void	end_menu(ITEM **my_items, MENU *my_menu);
 
-void 	start_menu(void)
+void	start_menu(void)
 {
 
 	int 	n;
@@ -30,9 +30,10 @@ void 	start_menu(void)
 	draw_menu();
 	n = menu_loop();
 	end_menu(e->items, e->menu);
+	(void)n;
 }
 
-void print_in_middle(int starty, int startx, int width)
+void	print_in_middle(int starty, int startx, int width)
 {	int length, x, y;
 	float temp;
 	t_env 	*e;
@@ -56,7 +57,7 @@ void print_in_middle(int starty, int startx, int width)
 	refresh();
 }
 
-int 	menu_loop()
+int		menu_loop()
 {
 	int 	n;
 	int 	c;
@@ -64,8 +65,8 @@ int 	menu_loop()
 
 	n = 0;
 	e = getEnv();
-	while((c = wgetch(e->menu_win)) != 27)
-	{   
+	while ((c = wgetch(e->menu_win)) != 27)
+	{
 		if (c == KEY_DOWN){
 			if (n < 1)
 				n++;
@@ -82,7 +83,7 @@ int 	menu_loop()
 	return n;
 }
 
-ITEM 	**init_item(void)
+ITEM	**init_item(void)
 {
 	ITEM **my_items;
 	char *choices[2];
@@ -96,7 +97,7 @@ ITEM 	**init_item(void)
 	return my_items;
 }
 
-void 	end_menu(ITEM **my_items, MENU *my_menu)
+void	end_menu(ITEM **my_items, MENU *my_menu)
 {
 	free_item(my_items[0]);
 	free_item(my_items[1]);
