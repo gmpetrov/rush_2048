@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 13:11:43 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 20:20:48 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/28 21:11:50 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ t_env	*getEnv(void)
 		e->items = init_item();
 		e->menu = new_menu((ITEM **)e->items);
 		e->score = 0;
+		e->grid_size = 4;
 	}
 	return e;
 }
