@@ -6,7 +6,7 @@
 #    By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/20 09:56:28 by gmp               #+#    #+#              #
-#    Updated: 2015/02/28 12:55:05 by gmp              ###   ########.fr        #
+#    Updated: 2015/02/28 13:39:50 by gmp              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS	= $(shell find srcs -type f -print | grep "\.c")
 OBJS	= $(SRCS:srcs/%.c=srcs/.obj/%.o)
 INC		= -I includes -I libft/includes
 FLAGS	= -Wall -Wextra -Werror
-LIB		= -L libft -lft -L /usr/X11/lib -lmlx -lXext -lX11
+LIB		= -L libft -lft -L /usr/X11/lib -lmlx -lXext -lX11 -lcurses
 CC		= gcc -g
 OBJ_DIR = srcs/.obj
 
@@ -23,7 +23,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@make -C libft
-	@$(CC) $(FLAGS) $(OBJS) -o $(NAME) $(INC) $(INC) $(LIB)
+	@$(CC) $(FLAGS) $(OBJS) -o $(NAME) $(INC) $(LIB)
 	@echo "\n=> Compiling $(NAME) [\033[32mDONE\033[m]"
 
 $(OBJ_DIR)/%.o: srcs/%.c
@@ -33,7 +33,7 @@ $(OBJ_DIR)/%.o: srcs/%.c
 
 gdb:
 	make -C libft
-	cc -g $(FLAGS) $(OBJS) -o $(NAME) $(INC) $(INC) $(LIB)
+	cc -g $(FLAGS) $(OBJS) -o $(NAME) $(INC) $(LIB)
 	gdb $(NAME)
 
 clean:

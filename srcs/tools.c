@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/28 12:55:16 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 13:58:31 by gmp              ###   ########.fr       */
+/*   Created: 2015/02/28 13:58:37 by gmp               #+#    #+#             */
+/*   Updated: 2015/02/28 13:58:44 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-int 	main(void)
+void 	resizeHandler(int sig)
 {
-	ft_putstr("game_2048\n");
-	initscr();
-	keypad(stdscr, TRUE);
-	signal(SIGWINCH, resizeHandler);
-	while (42)
-		; /* Resize handling */
-	return (0);
+	t_env 	*e;
+
+	(void)sig;
+    endwin();
+    refresh();
+    clear();
+    e = getEnv();
+    e->width = COLS;
+    e->height = LINES;
+    mvprintw(0, 0, "COLS = %d, LINES = %d", e->width, e->height);
+    refresh();
 }
