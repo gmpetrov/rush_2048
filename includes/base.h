@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 14:44:01 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/28 15:07:13 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libft.h"
 # include <curses.h>
 # include <signal.h>
+# include <menu.h>
 
 /* !!!!!! LOOK UP NORME FOR ENUM TYPEDEF  !!!!! */
 typedef enum 	t_const
@@ -39,6 +40,7 @@ typedef struct 	s_env
 t_env	*getEnv(void);
 void 	resizeHandler(int signal);
 void	initDisplay(void);
+void 	start_menu(void);
 
 /* END PROTOTYPES */
 

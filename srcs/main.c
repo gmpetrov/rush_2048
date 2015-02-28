@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 12:55:16 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 14:43:50 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/28 16:01:02 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 int 	main(void)
 {
+	// ITEM *cur_item;
+
+
 	ft_putstr("game_2048\n");
 	initDisplay();
-	while (42)
-		; /* Resize handling */
+	start_menu();
 	return (0);
 }

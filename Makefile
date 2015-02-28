@@ -6,7 +6,7 @@
 #    By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/20 09:56:28 by gmp               #+#    #+#              #
-#    Updated: 2015/02/28 14:28:37 by gmp              ###   ########.fr        #
+#    Updated: 2015/02/28 14:57:47 by gmp              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS	= $(shell find srcs -type f -print | grep "\.c")
 OBJS	= $(SRCS:srcs/%.c=srcs/.obj/%.o)
 INC		= -I includes -I libft/includes
 FLAGS	= -Wall -Wextra -Werror
-LIB		= -L libft -lft -lcurses
+LIB		= -L libft -lft -lcurses -lmenu
 CC		= gcc -g
 OBJ_DIR = srcs/.obj
 
