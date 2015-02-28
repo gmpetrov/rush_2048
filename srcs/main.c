@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 12:55:16 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 13:58:31 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/28 18:26:46 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ int 	main(void)
 	t_env	*env;
 
 	ft_putstr("game_2048\n");
+
+	initDisplay();
+	start_menu();
+	quit();
+
 	if (!is_pow2(WIN_VALUE))
 		return (error_win());
 //	initscr();

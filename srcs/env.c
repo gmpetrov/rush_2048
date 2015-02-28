@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 13:11:43 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 13:16:00 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/28 18:28:03 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,13 @@ t_env		*init_env(int x, int y)
 		return (NULL);
 	env->width = x;
 	env->height = y;
+	env = (t_env *)malloc(sizeof(t_env));
+	env->width = COLS;
+	env->height = LINES;
+	env->is_menu = 0;
+	env->menu_win = newwin(10, 40, (LINES / 2) - 5, (COLS / 2) - 20);
+	env->items = init_item();
+	env->menu = new_menu((ITEM **)e->items);
 	if (!(env->game = init_game(x, y)))
 	{
 		free(env);

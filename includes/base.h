@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 13:44:25 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/28 18:29:06 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libft.h"
 # include <ncurses.h>
 # include <signal.h>
+# include <menu.h>
 # include <stdlib.h>
 
 # define CHECK_MATE 42
@@ -38,6 +39,11 @@ typedef struct 	s_env
 	int			**game;
 	int			width;
 	int 		height;
+	int 		grid_size;
+	int 		is_menu;
+	WINDOW 		*menu_win;
+	MENU 		*menu;
+	ITEM 		**items;
 }				t_env;
 
 
@@ -64,6 +70,12 @@ int		move_down(t_env *env);
 int		move_left(t_env *env);
 int		move_right(t_env *env);
 void 	resizeHandler(int signal);
+void	initDisplay(void);
+void 	start_menu(void);
+void 	draw_menu(void);
+void 	quit(void);
+void 	print_in_middle(int starty, int startx, int width);
+ITEM 	**init_item(void);
 
 /* END PROTOTYPES */
 
