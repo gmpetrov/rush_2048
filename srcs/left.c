@@ -6,7 +6,7 @@
 /*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 14:16:40 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 17:55:57 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 18:20:54 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static int	merge_value(t_env *env, int x, int y, int prev_x)
 	{
 		env->game[y][x] = env->game[y][prev_x] * 2;
 		env->game[y][prev_x] = 0;
+		add_score(env, env->game[y][x]);
 		return (MOVED);
 	}
 	return (NOT_MOVED);

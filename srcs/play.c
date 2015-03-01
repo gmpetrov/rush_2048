@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 19:15:57 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 17:57:48 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 18:21:54 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	play(void)
 	if (!init_game(&e))
 		return ;
 	init_win_tab();
-	while (e->score < (int)WIN_VALUE)
+	while (42)
 	{
 		draw_game();
 		refresh_win_tab();
