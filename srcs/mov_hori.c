@@ -6,7 +6,7 @@
 /*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/30 22:47:41 by mdufaud           #+#    #+#             */
-/*   Updated: 2014/05/04 22:42:53 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 15:28:32 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	collide_hori_numbers(t_env *env, int prev_x, int y, int next_x)
 	return (NOT_MOVED);
 }
 
-int			move_left(t_env *env)
+int			move_left2(t_env *env)
 {
 	int	x;
 	int	y;
@@ -53,7 +53,7 @@ int			move_left(t_env *env)
 	return (ret);
 }
 
-int			move_right(t_env *env)
+int			move_right2(t_env *env)
 {
 	int	x;
 	int	y;

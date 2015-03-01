@@ -6,7 +6,7 @@
 /*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/30 22:47:41 by mdufaud           #+#    #+#             */
-/*   Updated: 2014/05/04 22:42:53 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 15:37:29 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,14 @@ void	mov_notif(int direction)
 
 void	debug_map(t_env *env)
 {
-	env->game[3][2] = 2;
-	env->game[2][2] = 4;
+	/*
+	env->game[0][0] = 4;
+	env->game[0][1] = 2;
+	env->game[0][2] = 2;
+	env->game[0][3] = 4;
+	env->game[1][3] = 4;
+	*/
+	env->game[0][3] = 4;
 }
 
 void	debug_game(t_env *env, int direction)

@@ -6,7 +6,7 @@
 /*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/30 22:47:41 by mdufaud           #+#    #+#             */
-/*   Updated: 2014/05/04 22:42:53 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 14:49:05 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	collide_vert_numbers(t_env *env, int lower_y, int x, int upper_y)
 	return (NOT_MOVED);
 }
 
-int			move_up(t_env *env)
+int			move_up2(t_env *env)
 {
 	int	x;
 	int	y;
@@ -53,7 +53,7 @@ int			move_up(t_env *env)
 	return (ret);
 }
 
-int			move_down(t_env *env)
+int			move_down2(t_env *env)
 {
 	int	x;
 	int	y;
