@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 15:42:45 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 16:33:47 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,9 @@ void 	print_128(t_env *e, int j, int i);
 void 	print_256(t_env *e, int j, int i);
 void 	print_512(t_env *e, int j, int i);
 void 	print_1024(t_env *e, int j, int i);
+
+void	loose_screen(void);
+void	win_screen(void);
 
 /* KEYS */
 

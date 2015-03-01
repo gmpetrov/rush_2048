@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 19:15:57 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 15:20:56 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 16:57:53 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,8 @@ void	draw_game(void)
 	{
 		while (i < e->grid_size)
 		{
+			loose_screen();
+			continue ;
 			wclear(e->win_tab[j][i]);
 			wresize(e->win_tab[j][i], (e->height / e->grid_size), \
 				(e->width / e->grid_size));
