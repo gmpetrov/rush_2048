@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 15:02:35 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 17:44:54 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 18:25:26 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ void	start_menu(void)
 
 void	print_in_middle(int starty, int startx, int width)
 {
-	int		length, x, y;
+	int		length;
+	int		x;
+	int		y;
 	float	temp;
 	t_env	*e;
 

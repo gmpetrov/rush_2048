@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 18:21:06 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 18:24:56 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ void			my_end_menu(ITEM **my_items, MENU *my_menu);
 void			print_loose(int y, int x);
 void			print_win(int y, int x);
 void			add_score(t_env *e, int number);
-
 void			print_numbers_normal(t_env *e, int j, int i, char *nb);
 void			print_numbers_ascii(t_env *e, int j, int i, int nb);
 void			print_2(t_env *e, int j, int i);
@@ -96,8 +95,5 @@ void			print_512(t_env *e, int j, int i);
 void			print_1024(t_env *e, int j, int i);
 void			loose_screen(void);
 void			win_screen(void);
-
-
 void			key_escape(void);
-
 #endif
