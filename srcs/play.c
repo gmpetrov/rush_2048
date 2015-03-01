@@ -6,19 +6,11 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 19:15:57 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 22:04:12 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 22:25:40 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
-
-static void	choose_screen(t_env *e, int ret)
-{
-	if (ret == CHECK_MATE)
-		loose_screen(e);
-	else if (ret == WIN)
-		win_screen(e);
-}
 
 void		play(t_env *e)
 {
@@ -39,9 +31,10 @@ void		play(t_env *e)
 			if (c == 27)
 				quit(e);
 			ret = move_numbers(e, c);
-			if (ret == CHECK_MATE || ret == WIN)
-				break ;
+			if (ret == CHECK_MATE)
+				loose_screen(e);
+			if (ret == WIN && !e->won)
+				win_screen(e);
 		}
 	}
-	choose_screen(e, ret);
 }

@@ -6,7 +6,7 @@
 /*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 19:02:09 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 22:00:42 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 22:24:22 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ t_env		*init_env(void)
 	env->game = NULL;
 	env->score = 0;
 	env->grid_size = 0;
+	env->won = 0;
 	return (env);
 }
