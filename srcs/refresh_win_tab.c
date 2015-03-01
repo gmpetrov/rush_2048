@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   refresh_win_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 19:15:05 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 19:15:46 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 19:49:26 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,11 @@ void	refresh_win_tab(void)
 	{
 		while (i < e->grid_size)
 		{
-			wrefresh(e->win_tab[j][i]);
+			wnoutrefresh(e->win_tab[j][i]);
 			i++;
 		}
 		i = 0;
 		j++;
 	}
+	doupdate();
 }
