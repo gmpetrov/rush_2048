@@ -6,15 +6,11 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 15:02:35 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 17:39:08 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 17:44:54 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
-#include <stdio.h>
-
-int		menu_loop();
-void	end_menu(ITEM **my_items, MENU *my_menu);
 
 void	start_menu(void)
 {
@@ -26,11 +22,11 @@ void	start_menu(void)
 	e->is_menu = 1;
 	keypad(e->menu_win, TRUE);
 	draw_menu();
-	n = menu_loop();
+	n = my_menu_loop();
 	if (n == 27)
 		quit();
 	e->grid_size = (n == 1 ? 5 : 4);
-	end_menu(e->items, e->menu);
+	my_end_menu(e->items, e->menu);
 }
 
 void	print_in_middle(int starty, int startx, int width)
@@ -56,7 +52,7 @@ void	print_in_middle(int starty, int startx, int width)
 	refresh();
 }
 
-int		menu_loop(void)
+int		my_menu_loop(void)
 {
 	int		n;
 	int		c;
@@ -98,7 +94,7 @@ ITEM	**init_item(void)
 	return (my_items);
 }
 
-void	end_menu(ITEM **my_items, MENU *my_menu)
+void	my_end_menu(ITEM **my_items, MENU *my_menu)
 {
 	t_env	*e;
 
