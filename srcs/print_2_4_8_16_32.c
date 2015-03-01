@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 14:55:47 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 15:25:57 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 17:29:12 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	print_2(t_env *e, int j, int i)
 		((e->width / e->grid_size) / 2) - 5, "$$$$$$$$/ ");
 }
 
-void 	print_4(t_env *e, int j, int i)
+void	print_4(t_env *e, int j, int i)
 {
 	mvwprintw(e->win_tab[j][i], ((e->height / e->grid_size) / 2) - 6 + 1, \
 		((e->width / e->grid_size) / 2) - 5, " __    __ ");
@@ -56,7 +56,7 @@ void 	print_4(t_env *e, int j, int i)
 		((e->width / e->grid_size) / 2) - 5, "      $$/");
 }
 
-void 	print_8(t_env *e, int j, int i)
+void	print_8(t_env *e, int j, int i)
 {
 	mvwprintw(e->win_tab[j][i], ((e->height / e->grid_size) / 2) - 6 + 1, \
 		((e->width / e->grid_size) / 2) - 5, "  ______  ");
@@ -78,7 +78,7 @@ void 	print_8(t_env *e, int j, int i)
 		((e->width / e->grid_size) / 2) - 5, " $$$$$$/  ");
 }
 
-void 	print_16(t_env *e, int j, int i)
+void	print_16(t_env *e, int j, int i)
 {
 	mvwprintw(e->win_tab[j][i], ((e->height / e->grid_size) / 2) - 6 + 1, \
 		((e->width / e->grid_size) / 2) - 7, "   __     ______  ");
@@ -100,7 +100,7 @@ void 	print_16(t_env *e, int j, int i)
 		((e->width / e->grid_size) / 2) - 7, "$$$$$$/  $$$$$$/  ");
 }
 
-void 	print_32(t_env *e, int j, int i)
+void	print_32(t_env *e, int j, int i)
 {
 	mvwprintw(e->win_tab[j][i], ((e->height / e->grid_size) / 2) - 6 + 1, \
 		((e->width / e->grid_size) / 2) - 8, "  ______    ______  ");

@@ -6,14 +6,14 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 12:55:16 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 17:22:27 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 17:27:50 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 #include <time.h>
 
-int 	main(void)
+int		main(void)
 {
 	if (!is_pow2(WIN_VALUE))
 		return (error_win());

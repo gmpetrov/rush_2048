@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/30 22:47:41 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 14:53:16 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 17:28:17 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,20 +66,6 @@ static int	move_handler(t_env *env, int key)
 	if (f)
 		return (f(env));
 	return (NOT_MOVED);
-/*
-	int		cond;
-	if (key == KEY_UP || key == KEY_DOWN)
-		cond = env->grid_size;
-	else
-		cond = env->grid_size;
-	int		try;
-	try = 0;
-	while (f && try < cond && f(env) == MOVED)
-		try++;
-	if (try)
-		return (MOVED);
-	return (NOT_MOVED);
-	*/
 }
 
 int			move_numbers(t_env *env, int key)

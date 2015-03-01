@@ -6,15 +6,15 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 18:18:50 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 17:08:04 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 17:27:21 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-void 	draw_menu(void)
+void	draw_menu(void)
 {
-	t_env 	*e;
+	t_env	*e;
 
 	e = get_env();
 	mvwin(e->menu_win, (LINES / 2) - 5, (COLS / 2) - 20);

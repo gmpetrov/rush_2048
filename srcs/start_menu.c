@@ -6,12 +6,11 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 15:02:35 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 17:09:01 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 17:39:08 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
-
 #include <stdio.h>
 
 int		menu_loop();
@@ -19,8 +18,8 @@ void	end_menu(ITEM **my_items, MENU *my_menu);
 
 void	start_menu(void)
 {
-	int 	n;
-	t_env 	*e;
+	int		n;
+	t_env	*e;
 
 	n = 0;
 	e = get_env();
@@ -35,20 +34,21 @@ void	start_menu(void)
 }
 
 void	print_in_middle(int starty, int startx, int width)
-{	int length, x, y;
-	float temp;
-	t_env 	*e;
+{
+	int		length, x, y;
+	float	temp;
+	t_env	*e;
 
 	e = get_env();
 	getyx(e->menu_win, y, x);
-	if(startx != 0)
+	if (startx != 0)
 		x = startx;
-	if(starty != 0)
+	if (starty != 0)
 		y = starty;
-	if(width == 0)
+	if (width == 0)
 		width = 80;
 	length = ft_strlen("2048");
-	temp = (width - length)/ 2;
+	temp = (width - length) / 2;
 	x = startx + (int)temp;
 	wattron(e->menu_win, COLOR_PAIR(1));
 	mvwprintw(e->menu_win, y, x, "%s", "2048");
@@ -56,15 +56,15 @@ void	print_in_middle(int starty, int startx, int width)
 	refresh();
 }
 
-int		menu_loop()
+int		menu_loop(void)
 {
-	int 	n;
-	int 	c;
-	t_env 	*e;
+	int		n;
+	int		c;
+	t_env	*e;
 
 	n = 0;
 	e = get_env();
-	while((c = wgetch(e->menu_win)) != 27)
+	while ((c = wgetch(e->menu_win)) != 27)
 	{
 		if (c == KEY_DOWN)
 		{
@@ -81,7 +81,7 @@ int		menu_loop()
 		else if (c == 10)
 			break ;
 	}
-	return n;
+	return (n);
 }
 
 ITEM	**init_item(void)
@@ -95,7 +95,7 @@ ITEM	**init_item(void)
 	my_items[0] = new_item(choices[0], "");
 	my_items[1] = new_item(choices[1], "");
 	my_items[2] = (ITEM *)NULL;
-	return my_items;
+	return (my_items);
 }
 
 void	end_menu(ITEM **my_items, MENU *my_menu)

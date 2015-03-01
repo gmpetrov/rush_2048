@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 15:06:53 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 17:09:12 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 17:30:08 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ void	print_numbers_normal(t_env *e, int j, int i, char *nb)
 			(e->width / e->grid_size) / 2, nb);
 }
 
-void 	print_numbers(void)
+void	print_numbers(void)
 {
 	t_env	*e;
-	int 	j;
-	int 	i;
+	int		j;
+	int		i;
 	char	*nb;
 
 	i = 0;
@@ -51,7 +51,7 @@ void 	print_numbers(void)
 	}
 }
 
-void 	print_numbers_ascii(t_env *e, int j, int i, int nb)
+void	print_numbers_ascii(t_env *e, int j, int i, int nb)
 {
 	if (nb == 2)
 		print_2(e, j, i);
