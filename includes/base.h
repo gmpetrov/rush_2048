@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 18:24:56 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 18:29:29 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 typedef enum	e_const
 {
-	WIN_VALUE = 16
+	WIN_VALUE = 2048
 }				t_const;
 
 typedef struct	s_env
