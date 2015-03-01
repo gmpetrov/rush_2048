@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 15:06:53 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 15:48:36 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 15:53:27 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void 	print_numbers(void)
 		{
 			nb = ft_itoa(e->game[j][i]);
 			wattron(e->win_tab[j][i], COLOR_PAIR(1));
-			if ((e->height / e->grid_size) >= 10 && (e->width / e->grid_size) >= 21)
+			if ((e->height / e->grid_size) >= 10 && \
+				(e->width / e->grid_size) >= 21)
 				print_numbers_ascii(e, j, i, e->game[j][i]);
 			else
 				print_numbers_normal(e, j, i, nb);
