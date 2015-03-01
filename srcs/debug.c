@@ -6,7 +6,7 @@
 /*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/30 22:47:41 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 15:37:29 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 16:59:57 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,12 @@ void	mov_notif(int direction)
 
 void	debug_map(t_env *env)
 {
-	/*
-	env->game[0][0] = 4;
-	env->game[0][1] = 2;
-	env->game[0][2] = 2;
-	env->game[0][3] = 4;
-	env->game[1][3] = 4;
-	*/
-	env->game[0][3] = 4;
+	int		**g;
+
+	g = env->game;
+	g[0][0] = 4;
+	g[0][1] = 4;
+	g[0][2] = 4;
 }
 
 void	debug_game(t_env *env, int direction)
@@ -94,12 +92,12 @@ void	debug_game(t_env *env, int direction)
 		rand_direction = rand() % 4;
 		ret = move_numbers(env, rand_direction);
 		print_game(env);
-//		if (ret == GAME_STOPPED)
-//			break ;
+		if (ret == GAME_STOPPED)
+			break ;
 		if (ret == CHECK_MATE)
 			break ;
-//		if (it == 30)
-//			break ;
+		if (it == 30)
+			break ;
 	}
 	if (ret == GAME_STOPPED)
 		ft_putendl("No more move in that direction");

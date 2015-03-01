@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 19:15:57 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 14:51:40 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 17:00:07 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,8 @@ void 	play(void)
 		free_env(&e);
 		return ;
 	}
-//	generate_rand_numb(e);
-//	generate_rand_numb(e);
-	debug_map(e);
+	generate_rand_numb(e);
+	generate_rand_numb(e);
 	init_win_tab();
 	while (e->score < (int)WIN_VALUE)
 	{

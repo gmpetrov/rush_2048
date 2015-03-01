@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 14:09:50 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 16:58:30 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,32 +25,26 @@
 # define NOT_MOVED 0
 # define WIN 1337
 
-/* !!!!!! LOOK UP NORME FOR ENUM TYPEDEF  !!!!! */
-typedef enum 	t_const
+typedef enum	e_const
 {
 	WIN_VALUE = 2048
-}				e_const;
+}				t_const;
 
-typedef struct 	s_env
+typedef struct	s_env
 {
 	int			**game;
 	int			width;
-	int 		height;
+	int			height;
 	int			last_x;
 	int			last_y;
-	int 		grid_size;
-	int 		is_menu;
-	WINDOW 		*menu_win;
-	MENU 		*menu;
-	ITEM 		**items;
-	int 		score;
+	int			grid_size;
+	int			is_menu;
+	WINDOW		*menu_win;
+	MENU		*menu;
+	ITEM		**items;
+	int			score;
 	WINDOW		***win_tab;
 }				t_env;
-
-/* STRUCTURES */
-
-
-/* PROTOTYPES */
 
 int		error_win(void);
 int		error(char *message);
@@ -70,25 +64,21 @@ int		move_up(t_env *env);
 int		move_down(t_env *env);
 int		move_left(t_env *env);
 int		move_right(t_env *env);
-void 	resizeHandler(int signal);
+void	resizeHandler(int signal);
 void	initDisplay(void);
-void 	start_menu(void);
-void 	draw_menu(void);
-void 	quit(void);
-void 	print_in_middle(int starty, int startx, int width);
-ITEM 	**init_item(void);
-void 	play(void);
-void    initPtrTab(t_env *e);
-int     keyMap(int keycode);
-void 	init_win_tab(void);
-void 	refresh_win_tab(void);
+void	start_menu(void);
+void	draw_menu(void);
+void	quit(void);
+void	print_in_middle(int starty, int startx, int width);
+ITEM	**init_item(void);
+void	play(void);
+void	initPtrTab(t_env *e);
+int		keyMap(int keycode);
+void	init_win_tab(void);
+void	refresh_win_tab(void);
 void	draw_game(void);
-void 	print_numbers(void);
+void	print_numbers(void);
 
-/* KEYS */
-
-void    key_escape(void);
-
-/* END PROTOTYPES */
+void	key_escape(void);
 
 #endif

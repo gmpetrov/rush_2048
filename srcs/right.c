@@ -6,7 +6,7 @@
 /*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 14:16:58 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 15:48:19 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 16:49:43 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	merge(t_env *env)
 		x = env->grid_size - 1;
 		while (x >= 0)
 		{
-			ret = merge_value(env, x, y, x + 1) ? MOVED : ret;
+			ret = merge_value(env, x, y, x - 1) ? MOVED : ret;
 			x--;
 		}
 		y++;
