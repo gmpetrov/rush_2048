@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 15:06:53 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 15:53:27 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 17:09:12 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void 	print_numbers(void)
 
 	i = 0;
 	j = 0;
-	e = getEnv();
+	e = get_env();
 	while (j < e->grid_size)
 	{
 		while (i < e->grid_size)

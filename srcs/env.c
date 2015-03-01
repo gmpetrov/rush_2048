@@ -6,13 +6,13 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 13:11:43 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 17:19:49 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 17:21:25 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-t_env		*getEnv(void)
+t_env	*get_env(void)
 {
 	static t_env	*e = NULL;
 
