@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 17:21:47 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 17:47:26 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,10 @@ void	init_win_tab(void);
 void	refresh_win_tab(void);
 void	draw_game(void);
 void	print_numbers(void);
+int		my_menu_loop(void);
+void	my_end_menu(ITEM **my_items, MENU *my_menu);
+void	print_loose(int y, int x);
+void	print_win(int y, int x);
 
 void	print_numbers_normal(t_env *e, int j, int i, char *nb);
 void	print_numbers_ascii(t_env *e, int j, int i, int nb);
