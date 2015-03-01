@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 19:15:57 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 14:16:18 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 15:20:56 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,35 +90,6 @@ void 	play(void)
 	}
 }
 
-void 	print_numbers(void)
-{
-	t_env	*e;
-	int 	j;
-	int 	i;
-	char	*nb;
-
-	i = 0;
-	j = 0;
-	e = getEnv();
-	while (j < e->grid_size)
-	{
-		while (i < e->grid_size)
-		{
-			nb = ft_itoa(e->game[j][i]);
-			if (e->game[j][i] == 0)
-				mvwprintw(e->win_tab[j][i], (e->height / e->grid_size) / 2, \
-					(e->width / e->grid_size) / 2, "");
-			else
-				mvwprintw(e->win_tab[j][i], (e->height / e->grid_size) / 2, \
-					(e->width / e->grid_size) / 2, nb);
-			i++;
-			free(nb);
-		}
-		i = 0;
-		j++;
-	}
-}
-
 void	draw_game(void)
 {
 	t_env	*e;
@@ -137,6 +108,7 @@ void	draw_game(void)
 				(e->width / e->grid_size));
 			mvwin(e->win_tab[j][i], j * (e->height / e->grid_size), \
 				i * (e->width / e->grid_size));
+			wattron(e->win_tab[j][i], COLOR_PAIR(3));
 			box(e->win_tab[j][i], 0, 0);
 			i++;
 		}

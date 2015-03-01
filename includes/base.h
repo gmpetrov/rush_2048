@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 14:09:50 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 15:42:45 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,21 @@ void 	init_win_tab(void);
 void 	refresh_win_tab(void);
 void	draw_game(void);
 void 	print_numbers(void);
+
+/* ASCII ART */
+
+void	print_numbers_normal(t_env *e, int j, int i, char *nb);
+void 	print_numbers_ascii(t_env *e, int j, int i, int nb);
+void	print_2(t_env *e, int j, int i);
+void	print_4(t_env *e, int j, int i);
+void	print_8(t_env *e, int j, int i);
+void	print_16(t_env *e, int j, int i);
+void	print_32(t_env *e, int j, int i);
+void 	print_64(t_env *e, int j, int i);
+void 	print_128(t_env *e, int j, int i);
+void 	print_256(t_env *e, int j, int i);
+void 	print_512(t_env *e, int j, int i);
+void 	print_1024(t_env *e, int j, int i);
 
 /* KEYS */
 
