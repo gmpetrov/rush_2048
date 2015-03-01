@@ -6,22 +6,22 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 13:11:43 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 14:11:07 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 17:19:49 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-t_env	*getEnv(void)
+t_env		*getEnv(void)
 {
 	static t_env	*e = NULL;
 
 	if (e == NULL)
 		e = init_env(5);
-	return e;
+	return (e);
 }
 
-void	free_env(t_env **env)
+void		free_env(t_env **env)
 {
 	int		i;
 
@@ -37,7 +37,7 @@ void	free_env(t_env **env)
 	*env = NULL;
 }
 
-int		**init_game(int grid_size)
+static int	**allocate_game_grid(int grid_size)
 {
 	int	**game;
 	int	i;
@@ -61,7 +61,17 @@ int		**init_game(int grid_size)
 	return (game);
 }
 
-t_env	*init_env(int grid_size)
+int			init_game(t_env **e)
+{
+	(*e)->game = allocate_game_grid((*e)->grid_size);
+	if (!(*e)->game)
+		return (0);
+	generate_rand_numb(*e);
+	generate_rand_numb(*e);
+	return (1);
+}
+
+t_env		*init_env(int grid_size)
 {
 	t_env	*env;
 

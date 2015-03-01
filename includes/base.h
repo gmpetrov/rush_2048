@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 17:04:39 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 17:16:39 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int		is_pow2(unsigned long x);
 void	generate_rand_numb(t_env *env);
 t_env	*getEnv(void);
 t_env	*init_env(int grid_size);
-int		**init_game(int grid_size);
+int		init_game(t_env **e);
 void	free_env(t_env **env);
 int		move_numbers(t_env *env, int key);
 int		move_up(t_env *env);

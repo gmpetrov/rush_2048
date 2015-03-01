@@ -6,17 +6,17 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 19:15:57 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 17:04:53 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 17:19:10 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-void 	refresh_win_tab(void)
+void	refresh_win_tab(void)
 {
 	t_env	*e;
-	int 	j;
-	int 	i;
+	int		j;
+	int		i;
 
 	e = getEnv();
 	i = 0;
@@ -33,11 +33,11 @@ void 	refresh_win_tab(void)
 	}
 }
 
-void 	init_win_tab(void)
+void	init_win_tab(void)
 {
 	t_env	*e;
-	int 	j;
-	int 	i;
+	int		j;
+	int		i;
 
 	e = getEnv();
 	i = 0;
@@ -59,20 +59,22 @@ void 	init_win_tab(void)
 	}
 }
 
-void 	play(void)
+void	choose_screen(int ret)
 {
-	t_env 	*e;
-	int 	c;
+	if (ret == CHECK_MATE)
+		loose_screen();
+}
+
+void	play(void)
+{
+	t_env	*e;
+	int		c;
 	int		ret;
 
+	ret = -1;
 	e = getEnv();
-	if (!(e->game = init_game(e->grid_size)))
-	{
-		free_env(&e);
+	if (!init_game(&e))
 		return ;
-	}
-	generate_rand_numb(e);
-	generate_rand_numb(e);
 	init_win_tab();
 	while (e->score < (int)WIN_VALUE)
 	{
@@ -88,13 +90,14 @@ void 	play(void)
 				break ;
 		}
 	}
+	choose_screen(ret);
 }
 
 void	draw_game(void)
 {
 	t_env	*e;
-	int 	j;
-	int 	i;
+	int		j;
+	int		i;
 
 	i = 0;
 	j = 0;
@@ -103,8 +106,6 @@ void	draw_game(void)
 	{
 		while (i < e->grid_size)
 		{
-			loose_screen();
-			continue ;
 			wclear(e->win_tab[j][i]);
 			wresize(e->win_tab[j][i], (e->height / e->grid_size), \
 				(e->width / e->grid_size));
