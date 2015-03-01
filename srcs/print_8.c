@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_8.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 19:09:36 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 19:10:42 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 20:22:35 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	print_8(t_env *e, int j, int i)
 {
+	wattron(e->win_tab[j][i], COLOR_PAIR(4));
 	mvwprintw(e->win_tab[j][i], ((e->height / e->grid_size) / 2) - 6 + 1, \
 		((e->width / e->grid_size) / 2) - 5, "  ______  ");
 	mvwprintw(e->win_tab[j][i], ((e->height / e->grid_size) / 2) - 6 + 2, \

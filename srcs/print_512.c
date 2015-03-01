@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_512.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 19:11:29 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 19:12:03 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 20:25:34 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	print_512(t_env *e, int j, int i)
 {
+	wattron(e->win_tab[j][i], COLOR_PAIR(4));
 	mvwprintw(e->win_tab[j][i], ((e->height / e->grid_size) / 2) - 5 + 1, \
 		((e->width / e->grid_size) / 2) - 12, "                         ");
 	mvwprintw(e->win_tab[j][i], ((e->height / e->grid_size) / 2) - 5 + 2, \
