@@ -6,13 +6,13 @@
 /*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 19:02:09 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 19:03:04 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 22:00:42 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-t_env		*init_env(int grid_size)
+t_env		*init_env(void)
 {
 	t_env	*env;
 
@@ -28,6 +28,6 @@ t_env		*init_env(int grid_size)
 	env->menu = new_menu((ITEM **)env->items);
 	env->game = NULL;
 	env->score = 0;
-	env->grid_size = grid_size;
+	env->grid_size = 0;
 	return (env);
 }

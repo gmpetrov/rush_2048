@@ -6,18 +6,16 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 19:06:11 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 20:35:20 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 22:03:19 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-int		my_menu_loop(void)
+int		my_menu_loop(t_env *e)
 {
 	int		c;
-	t_env	*e;
 
-	e = get_env();
 	e->boolean = 0;
 	while ((c = wgetch(e->menu_win)) != 27)
 	{

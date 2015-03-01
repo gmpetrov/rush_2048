@@ -6,22 +6,20 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 15:06:53 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 20:37:23 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 21:59:18 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-void	print_numbers(void)
+void	print_numbers(t_env *e)
 {
-	t_env	*e;
 	int		j;
 	int		i;
 	char	*nb;
 
 	i = 0;
 	j = 0;
-	e = get_env();
 	while (j < e->grid_size)
 	{
 		while (i < e->grid_size)

@@ -6,19 +6,17 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 19:15:05 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 19:49:26 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 22:04:28 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-void	refresh_win_tab(void)
+void	refresh_win_tab(t_env *e)
 {
-	t_env	*e;
 	int		j;
 	int		i;
 
-	e = get_env();
 	i = 0;
 	j = 0;
 	while (j < e->grid_size)

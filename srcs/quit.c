@@ -6,17 +6,14 @@
 /*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 18:59:14 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 19:14:07 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 21:55:56 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-void	quit(void)
+void	quit(t_env *e)
 {
-	t_env	*e;
-
-	e = get_env();
 	free_env(&e);
 	nocbreak();
 	echo();

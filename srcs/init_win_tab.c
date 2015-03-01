@@ -6,19 +6,17 @@
 /*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 19:15:08 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 19:15:46 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 21:57:33 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-void	init_win_tab(void)
+void	init_win_tab(t_env *e)
 {
-	t_env	*e;
 	int		j;
 	int		i;
 
-	e = get_env();
 	i = 0;
 	j = 0;
 	e->win_tab = (WINDOW ***)malloc(sizeof(WINDOW **) * e->grid_size);

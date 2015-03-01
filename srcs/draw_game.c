@@ -6,21 +6,19 @@
 /*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 19:15:04 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 19:15:46 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 22:00:00 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-void	draw_game(void)
+void	draw_game(t_env *e)
 {
-	t_env	*e;
 	int		j;
 	int		i;
 
 	i = 0;
 	j = 0;
-	e = get_env();
 	while (j < e->grid_size)
 	{
 		while (i < e->grid_size)
@@ -37,5 +35,5 @@ void	draw_game(void)
 		i = 0;
 		j++;
 	}
-	print_numbers();
+	print_numbers(e);
 }

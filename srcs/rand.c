@@ -6,7 +6,7 @@
 /*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/30 22:47:41 by mdufaud           #+#    #+#             */
-/*   Updated: 2014/05/04 22:42:53 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 21:05:48 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ void		generate_rand_numb(t_env *env)
 	int	case_y;
 	int	try;
 
-	num = ((rand() % 2) + 1) * 2;
+	num = rand() % 10;
+	num = num == 9 ? 4 : 2;
 	case_x = 0;
 	case_y = 0;
 	try = 3;

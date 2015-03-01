@@ -6,17 +6,14 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 18:59:35 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 19:53:20 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 22:04:50 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-static void	draw_loose_screen(void)
+static void	draw_loose_screen(t_env *e)
 {
-	t_env	*e;
-
-	e = get_env();
 	clear();
 	mvwprintw(stdscr, (LINES / 2), (COLS / 2) - 5, \
 		"You loose !");
@@ -26,11 +23,8 @@ static void	draw_loose_screen(void)
 	refresh();
 }
 
-static void	draw_win_screen(void)
+static void	draw_win_screen(t_env *e)
 {
-	t_env	*e;
-
-	e = get_env();
 	clear();
 	mvwprintw(stdscr, (LINES / 2), (COLS / 2) - 5, "You win !");
 	mvwprintw(stdscr, (LINES / 2) - 5 + 12, \
@@ -42,16 +36,16 @@ static void	draw_win_screen(void)
 static void	choose_menu(t_env *e)
 {
 	if (e->is_menu == 1)
-		draw_menu();
+		draw_menu(e);
 	else if (e->is_menu == WIN_MENU)
-		draw_win_screen();
+		draw_win_screen(e);
 	else if (e->is_menu == LOOSE_MENU)
-		draw_loose_screen();
+		draw_loose_screen(e);
 	else if (e->is_menu == -42)
 	{
 		clear();
-		draw_game();
-		refresh_win_tab();
+		draw_game(e);
+		refresh_win_tab(e);
 	}
 }
 
@@ -64,7 +58,6 @@ void		resize_handler(int sig)
 	endwin();
 	refresh();
 	clear();
-	e = get_env();
 	e->width = COLS;
 	e->height = LINES;
 	choose_menu(e);
