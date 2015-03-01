@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/30 22:47:41 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 17:28:17 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 17:55:10 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,26 @@ static int	check_around(t_env *env, int y, int x)
 		return (1);
 	if (x < (env->grid_size - 1) && env->game[y][x + 1] == env->game[y][x])
 		return (1);
+	return (0);
+}
+
+static int	is_win(t_env *env)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y < env->grid_size)
+	{
+		x = 0;
+		while (x < env->grid_size)
+		{
+			if (env->game[y][x] == WIN_VALUE)
+				return (1);
+			x++;
+		}
+		y++;
+	}
 	return (0);
 }
 
@@ -82,6 +102,8 @@ int			move_numbers(t_env *env, int key)
 		ret = is_check_mate(env);
 		if (ret == WIN || ret == CHECK_MATE)
 			return (ret);
+		if (is_win(env))
+			return (WIN);
 	}
 	return (moved);
 }

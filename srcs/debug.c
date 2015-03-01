@@ -6,7 +6,7 @@
 /*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/30 22:47:41 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 16:59:57 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 17:45:39 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,10 @@ void	debug_map(t_env *env)
 	int		**g;
 
 	g = env->game;
-	g[0][0] = 4;
-	g[0][1] = 4;
-	g[0][2] = 4;
+	g[0][3] = 4;
+	g[1][3] = 2;
+	g[2][3] = 4;
+	g[3][3] = 4;
 }
 
 void	debug_game(t_env *env, int direction)

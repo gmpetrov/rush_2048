@@ -6,7 +6,7 @@
 /*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 14:16:57 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 15:26:00 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 17:52:37 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	merge_value(t_env *env, int x, int y, int upper_y)
 {
-	if (upper_y >= (env->grid_size - 1) || upper_y < 0 ||
+	if (upper_y > (env->grid_size - 1) || upper_y < 0 ||
 			env->game[upper_y][x] == 0)
 		return (NOT_MOVED);
 	if (env->game[upper_y][x] == env->game[y][x])

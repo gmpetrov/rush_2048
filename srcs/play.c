@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 19:15:57 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 17:22:01 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 17:56:24 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void	choose_screen(int ret)
 {
 	if (ret == CHECK_MATE)
 		loose_screen();
+	else if (ret == WIN)
+		win_screen();
 }
 
 void	play(void)
