@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_numbers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/30 22:47:41 by mdufaud           #+#    #+#             */
-/*   Updated: 2014/05/04 22:42:53 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 14:14:42 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static int	move_handler(t_env *env, int key)
 int			move_numbers(t_env *env, int key)
 {
 	int		moved;
-	int		ret;	
+	int		ret;
 
 	ret = 0;
 	moved = 0;

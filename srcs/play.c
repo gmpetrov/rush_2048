@@ -6,21 +6,11 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 19:15:57 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 22:32:23 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 14:16:18 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
-
-#include <stdio.h>
-
-int 	game[5][5] = {
-	{1, 1, 1, 1, 1},
-	{1, 1, 1, 1, 1},
-	{1, 1, 1, 1, 1},
-	{1, 1, 1, 1, 1},
-	{1, 1, 1, 1, 1}
-};
 
 void 	refresh_win_tab(void)
 {
@@ -40,7 +30,7 @@ void 	refresh_win_tab(void)
 		}
 		i = 0;
 		j++;
-	}	
+	}
 }
 
 void 	init_win_tab(void)
@@ -58,7 +48,8 @@ void 	init_win_tab(void)
 		e->win_tab[j] = (WINDOW **)malloc(sizeof(WINDOW *) * e->grid_size);
 		while (i < e->grid_size)
 		{
-			e->win_tab[j][i] = newwin((e->height / e->grid_size), (e->width / e->grid_size), \
+			e->win_tab[j][i] = newwin((e->height / e->grid_size), \
+				(e->width / e->grid_size), \
 				j * (e->height / e->grid_size), i * (e->width / e->grid_size));
 			box(e->win_tab[j][i], 0, 0);
 			i++;
@@ -75,7 +66,7 @@ void 	play(void)
 	int		ret;
 
 	e = getEnv();
-	if (!(e->game = init_game(e->grid_size)))	
+	if (!(e->game = init_game(e->grid_size)))
 	{
 		free_env(&e);
 		return ;
@@ -90,7 +81,6 @@ void 	play(void)
 		c = getch();
 		if (c != -1)
 		{
-//			mvprintw(0, 0, "KEY = %d\n", c);
 			if (c == 27)
 				quit();
 			ret = move_numbers(e, c);
@@ -113,7 +103,7 @@ void 	print_numbers(void)
 	while (j < e->grid_size)
 	{
 		while (i < e->grid_size)
-		{	
+		{
 			nb = ft_itoa(e->game[j][i]);
 			if (e->game[j][i] == 0)
 				mvwprintw(e->win_tab[j][i], (e->height / e->grid_size) / 2, \
@@ -143,8 +133,10 @@ void	draw_game(void)
 		while (i < e->grid_size)
 		{
 			wclear(e->win_tab[j][i]);
-			wresize(e->win_tab[j][i], (e->height / e->grid_size), (e->width / e->grid_size));
-			mvwin(e->win_tab[j][i], j * (e->height / e->grid_size), i * (e->width / e->grid_size));
+			wresize(e->win_tab[j][i], (e->height / e->grid_size), \
+				(e->width / e->grid_size));
+			mvwin(e->win_tab[j][i], j * (e->height / e->grid_size), \
+				i * (e->width / e->grid_size));
 			box(e->win_tab[j][i], 0, 0);
 			i++;
 		}
@@ -152,4 +144,4 @@ void	draw_game(void)
 		j++;
 	}
 	print_numbers();
-}	
+}
