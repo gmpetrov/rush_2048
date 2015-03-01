@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 18:59:35 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 19:37:58 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 19:53:20 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	draw_loose_screen(void)
 {
 	t_env	*e;
 
-	e = get_env();	
+	e = get_env();
 	clear();
 	mvwprintw(stdscr, (LINES / 2), (COLS / 2) - 5, \
 		"You loose !");
@@ -33,7 +33,7 @@ static void	draw_win_screen(void)
 	e = get_env();
 	clear();
 	mvwprintw(stdscr, (LINES / 2), (COLS / 2) - 5, "You win !");
-	mvwprintw(stdscr, (LINES / 2) - 5 + 12,\
+	mvwprintw(stdscr, (LINES / 2) - 5 + 12, \
 		(COLS / 2) - 10, "Your score : %d", e->score);
 	mvwprintw(stdscr, LINES - 2, 2, "%s", "Press escape to quit");
 	refresh();
