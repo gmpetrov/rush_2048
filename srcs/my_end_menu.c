@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start_menu.c                                       :+:      :+:    :+:   */
+/*   my_end_menu.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/28 15:02:35 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 19:07:34 by mdufaud          ###   ########.fr       */
+/*   Created: 2015/03/01 19:06:48 by mdufaud           #+#    #+#             */
+/*   Updated: 2015/03/01 19:07:19 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-void	start_menu(void)
+void	my_end_menu(ITEM **my_items, MENU *my_menu)
 {
-	int		n;
 	t_env	*e;
 
-	n = 0;
 	e = get_env();
-	e->is_menu = 1;
-	keypad(e->menu_win, TRUE);
-	draw_menu();
-	n = my_menu_loop();
-	if (n == 27)
-		quit();
-	e->grid_size = (n == 1 ? 5 : 4);
-	my_end_menu(e->items, e->menu);
+	e->is_menu = -42;
+	free_item(my_items[0]);
+	free_item(my_items[1]);
+	free_menu(my_menu);
 }

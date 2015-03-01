@@ -6,21 +6,11 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 15:06:53 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 18:08:54 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 19:09:05 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
-
-void	print_numbers_normal(t_env *e, int j, int i, char *nb)
-{
-	if (e->game[j][i] == 0)
-		mvwprintw(e->win_tab[j][i], (e->height / e->grid_size) / 2, \
-			(e->width / e->grid_size) / 2, "");
-	else
-		mvwprintw(e->win_tab[j][i], (e->height / e->grid_size) / 2, \
-			(e->width / e->grid_size) / 2, nb);
-}
 
 void	print_numbers(void)
 {
@@ -49,28 +39,4 @@ void	print_numbers(void)
 		i = 0;
 		j++;
 	}
-}
-
-void	print_numbers_ascii(t_env *e, int j, int i, int nb)
-{
-	if (nb == 2)
-		print_2(e, j, i);
-	else if (nb == 4)
-		print_4(e, j, i);
-	else if (nb == 8)
-		print_8(e, j, i);
-	else if (nb == 16)
-		print_16(e, j, i);
-	else if (nb == 32)
-		print_32(e, j, i);
-	else if (nb == 64)
-		print_64(e, j, i);
-	else if (nb == 128)
-		print_128(e, j, i);
-	else if (nb == 256)
-		print_256(e, j, i);
-	else if (nb == 512)
-		print_512(e, j, i);
-	else if (nb == 1024)
-		print_1024(e, j, i);
 }

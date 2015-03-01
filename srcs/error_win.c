@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start_menu.c                                       :+:      :+:    :+:   */
+/*   error_win.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/28 15:02:35 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 19:07:34 by mdufaud          ###   ########.fr       */
+/*   Created: 2015/03/01 19:00:58 by mdufaud           #+#    #+#             */
+/*   Updated: 2015/03/01 19:01:18 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-void	start_menu(void)
+int		error_win(void)
 {
-	int		n;
-	t_env	*e;
-
-	n = 0;
-	e = get_env();
-	e->is_menu = 1;
-	keypad(e->menu_win, TRUE);
-	draw_menu();
-	n = my_menu_loop();
-	if (n == 27)
-		quit();
-	e->grid_size = (n == 1 ? 5 : 4);
-	my_end_menu(e->items, e->menu);
+	ft_putnbr(WIN_VALUE);
+	ft_putendl(" is not a power of 2");
+	return (1);
 }

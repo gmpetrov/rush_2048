@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   init_item.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/04/30 22:47:41 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 19:01:18 by mdufaud          ###   ########.fr       */
+/*   Created: 2015/03/01 19:06:34 by mdufaud           #+#    #+#             */
+/*   Updated: 2015/03/01 19:07:19 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "base.h"
 
-int		error(char *message)
+ITEM	**init_item(void)
 {
-	ft_putendl(message);
-	return (1);
+	ITEM **my_items;
+	char *choices[2];
+
+	choices[0] = "> 1 - 4x4 grid";
+	choices[1] = "> 2 - 5x5 grid";
+	my_items = (ITEM **)malloc((2 + 1) * sizeof(ITEM *));
+	my_items[0] = new_item(choices[0], "");
+	my_items[1] = new_item(choices[1], "");
+	my_items[2] = (ITEM *)NULL;
+	return (my_items);
 }

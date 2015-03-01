@@ -1,49 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   play.c                                             :+:      :+:    :+:   */
+/*   draw_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/28 19:15:57 by gmp               #+#    #+#             */
+/*   Created: 2015/03/01 19:15:04 by mdufaud           #+#    #+#             */
 /*   Updated: 2015/03/01 19:15:46 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-static void	choose_screen(int ret)
-{
-	if (ret == CHECK_MATE)
-		loose_screen();
-	else if (ret == WIN)
-		win_screen();
-}
-
-void		play(void)
+void	draw_game(void)
 {
 	t_env	*e;
-	int		c;
-	int		ret;
+	int		j;
+	int		i;
 
-	ret = -1;
+	i = 0;
+	j = 0;
 	e = get_env();
-	if (!init_game(&e))
-		return ;
-	init_win_tab();
-	while (42)
+	while (j < e->grid_size)
 	{
-		draw_game();
-		refresh_win_tab();
-		c = getch();
-		if (c != -1)
+		while (i < e->grid_size)
 		{
-			if (c == 27)
-				quit();
-			ret = move_numbers(e, c);
-			if (ret == CHECK_MATE || ret == WIN)
-				break ;
+			wclear(e->win_tab[j][i]);
+			wresize(e->win_tab[j][i], (e->height / e->grid_size), \
+				(e->width / e->grid_size));
+			mvwin(e->win_tab[j][i], j * (e->height / e->grid_size), \
+				i * (e->width / e->grid_size));
+			wattron(e->win_tab[j][i], COLOR_PAIR(3));
+			box(e->win_tab[j][i], 0, 0);
+			i++;
 		}
+		i = 0;
+		j++;
 	}
-	choose_screen(ret);
+	print_numbers();
 }

@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   print_numbers_normal.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/04/30 22:47:41 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 19:01:18 by mdufaud          ###   ########.fr       */
+/*   Created: 2015/03/01 19:07:51 by mdufaud           #+#    #+#             */
+/*   Updated: 2015/03/01 19:08:51 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "base.h"
 
-int		error(char *message)
+void	print_numbers_normal(t_env *e, int j, int i, char *nb)
 {
-	ft_putendl(message);
-	return (1);
+	if (e->game[j][i] == 0)
+		mvwprintw(e->win_tab[j][i], (e->height / e->grid_size) / 2, \
+			(e->width / e->grid_size) / 2, "");
+	else
+		mvwprintw(e->win_tab[j][i], (e->height / e->grid_size) / 2, \
+			(e->width / e->grid_size) / 2, nb);
 }

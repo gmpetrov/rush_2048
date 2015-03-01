@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start_menu.c                                       :+:      :+:    :+:   */
+/*   free_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/28 15:02:35 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 19:07:34 by mdufaud          ###   ########.fr       */
+/*   Created: 2015/03/01 19:02:13 by mdufaud           #+#    #+#             */
+/*   Updated: 2015/03/01 19:03:17 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-void	start_menu(void)
+void		free_env(t_env **env)
 {
-	int		n;
-	t_env	*e;
+	int		i;
 
-	n = 0;
-	e = get_env();
-	e->is_menu = 1;
-	keypad(e->menu_win, TRUE);
-	draw_menu();
-	n = my_menu_loop();
-	if (n == 27)
-		quit();
-	e->grid_size = (n == 1 ? 5 : 4);
-	my_end_menu(e->items, e->menu);
+	i = 0;
+	while ((*env) && (*env)->game && i < (*env)->grid_size)
+	{
+		free((*env)->game[i]);
+		i++;
+	}
+	if ((*env)->game)
+		free((*env)->game);
+	free((*env));
+	*env = NULL;
 }

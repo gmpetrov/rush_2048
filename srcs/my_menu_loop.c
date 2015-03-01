@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start_menu.c                                       :+:      :+:    :+:   */
+/*   my_menu_loop.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/28 15:02:35 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 19:07:34 by mdufaud          ###   ########.fr       */
+/*   Created: 2015/03/01 19:06:11 by mdufaud           #+#    #+#             */
+/*   Updated: 2015/03/01 19:07:19 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-void	start_menu(void)
+int		my_menu_loop(void)
 {
 	int		n;
+	int		c;
 	t_env	*e;
 
 	n = 0;
 	e = get_env();
-	e->is_menu = 1;
-	keypad(e->menu_win, TRUE);
-	draw_menu();
-	n = my_menu_loop();
-	if (n == 27)
-		quit();
-	e->grid_size = (n == 1 ? 5 : 4);
-	my_end_menu(e->items, e->menu);
+	while ((c = wgetch(e->menu_win)) != 27)
+	{
+		if (c == KEY_DOWN)
+		{
+			if (n < 1)
+				n++;
+			menu_driver(e->menu, REQ_DOWN_ITEM);
+		}
+		else if (c == KEY_UP)
+		{
+			if (n > 0)
+				n--;
+			menu_driver(e->menu, REQ_UP_ITEM);
+		}
+		else if (c == 10)
+			break ;
+	}
+	return (n);
 }

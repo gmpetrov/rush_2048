@@ -1,19 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   loose_screen.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdufaud <mdufaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/04/30 22:47:41 by mdufaud           #+#    #+#             */
-/*   Updated: 2015/03/01 19:01:18 by mdufaud          ###   ########.fr       */
+/*   Created: 2015/03/01 19:04:14 by mdufaud           #+#    #+#             */
+/*   Updated: 2015/03/01 19:17:36 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "base.h"
 
-int		error(char *message)
+void	loose_screen(void)
 {
-	ft_putendl(message);
-	return (1);
+	t_env	*e;
+	int		c;
+
+	e = get_env();
+	e->is_menu = LOOSE_MENU;
+	clear();
+	mvwprintw(stdscr, (LINES / 2), (COLS / 2) - 5, \
+		"You loose !");
+	mvwprintw(stdscr, (LINES / 2) - 5 + 12, \
+		(COLS / 2) - 10, "Your score : %d", e->score);
+	mvwprintw(stdscr, LINES - 2, 2, "%s", "Press escape to quit");
+	refresh();
+	while (42)
+	{
+		c = getch();
+		if (c == 27)
+			quit();
+	}
 }

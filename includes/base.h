@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 18:29:29 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 19:18:16 by mdufaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@
 
 # define CHECK_MATE 42
 # define GAME_STOPPED 0
-# define MOVED 1
 # define NOT_MOVED 0
+# define MOVED 1
 # define WIN 1337
+# define WIN_MENU 42
+# define LOOSE_MENU 43
 
 typedef enum	e_const
 {
