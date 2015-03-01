@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 16:04:58 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 16:59:53 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 17:08:49 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	loose_screen(void)
 	t_env 	*e;
 	int 	c;
 
-	e = getEnv();
+	e = get_env();
 	clear();
 	print_loose((LINES / 2), (COLS / 2) - 40);
 	mvwprintw(stdscr, (LINES / 2) - 5 + 12, \
@@ -40,7 +40,7 @@ void	win_screen(void)
 	t_env 	*e;
 	int 	c;
 
-	e = getEnv();
+	e = get_env();
 	clear();
 	print_win((LINES / 2), (COLS / 2) - 40);
 	mvwprintw(stdscr, (LINES / 2) - 5 + 12, \

@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 18:18:50 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/28 18:18:57 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 17:08:04 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void 	draw_menu(void)
 {
 	t_env 	*e;
 
-	e = getEnv();
+	e = get_env();
 	mvwin(e->menu_win, (LINES / 2) - 5, (COLS / 2) - 20);
 	set_menu_win(e->menu, e->menu_win);
 	set_menu_sub(e->menu, derwin(e->menu_win, 6, 38, 3, 1));

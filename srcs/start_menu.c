@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 15:02:35 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 15:18:02 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/01 17:09:01 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	start_menu(void)
 	t_env 	*e;
 
 	n = 0;
-	e = getEnv();
+	e = get_env();
 	e->is_menu = 1;
 	keypad(e->menu_win, TRUE);
 	draw_menu();
@@ -39,7 +39,7 @@ void	print_in_middle(int starty, int startx, int width)
 	float temp;
 	t_env 	*e;
 
-	e = getEnv();
+	e = get_env();
 	getyx(e->menu_win, y, x);
 	if(startx != 0)
 		x = startx;
@@ -63,7 +63,7 @@ int		menu_loop()
 	t_env 	*e;
 
 	n = 0;
-	e = getEnv();
+	e = get_env();
 	while((c = wgetch(e->menu_win)) != 27)
 	{
 		if (c == KEY_DOWN)
@@ -102,7 +102,7 @@ void	end_menu(ITEM **my_items, MENU *my_menu)
 {
 	t_env	*e;
 
-	e = getEnv();
+	e = get_env();
 	e->is_menu = -42;
 	free_item(my_items[0]);
 	free_item(my_items[1]);

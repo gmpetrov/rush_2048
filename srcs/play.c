@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 19:15:57 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 17:04:53 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 17:08:33 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void 	refresh_win_tab(void)
 	int 	j;
 	int 	i;
 
-	e = getEnv();
+	e = get_env();
 	i = 0;
 	j = 0;
 	while (j < e->grid_size)
@@ -39,7 +39,7 @@ void 	init_win_tab(void)
 	int 	j;
 	int 	i;
 
-	e = getEnv();
+	e = get_env();
 	i = 0;
 	j = 0;
 	e->win_tab = (WINDOW ***)malloc(sizeof(WINDOW **) * e->grid_size);
@@ -65,7 +65,7 @@ void 	play(void)
 	int 	c;
 	int		ret;
 
-	e = getEnv();
+	e = get_env();
 	if (!(e->game = init_game(e->grid_size)))
 	{
 		free_env(&e);
@@ -98,7 +98,7 @@ void	draw_game(void)
 
 	i = 0;
 	j = 0;
-	e = getEnv();
+	e = get_env();
 	while (j < e->grid_size)
 	{
 		while (i < e->grid_size)
