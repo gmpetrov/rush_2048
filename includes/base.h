@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/01 19:18:16 by mdufaud          ###   ########.fr       */
+/*   Updated: 2015/03/01 20:34:21 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct	s_env
 	int			last_y;
 	int			grid_size;
 	int			is_menu;
+	int 		boolean;
 	WINDOW		*menu_win;
 	MENU		*menu;
 	ITEM		**items;
